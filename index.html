@@ -44,21 +44,172 @@
             const [isMenuOpen, setIsMenuOpen] = useState(false);
             const [activeAccordion, setActiveAccordion] = useState(null);
             const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
+            const [lang, setLang] = useState('ar');
+            const isAr = lang === 'ar';
 
-            // هام: تأكد من أن أسماء الصور في مجلد images تطابق هذه الأسماء
-            const screenshots = [
-                { src: "./images/brand_screen.png", caption: "اختر علامة الشاي التجارية" },
-                { src: "./images/product_screen.png", caption: "اختر المنتج، كمية الماء والمذاق اللي يناسبك" },
-                { src: "./images/weight_screen.png", caption: "احصل على الوزنة المناسبة" },
-                { src: "./images/timer_screen.png", caption: "تعليمات واضحة ومؤقت مدمج" }
+            const translations = {
+                ar: {
+                    nav: { home: "الرئيسية", about: "عن التطبيق", features: "المميزات", how: "كيف تستخدم وزنة؟", faq: "الأسئلة الشائعة", contact: "اتصل بنا", langToggle: "EN" },
+                    hero: {
+                        title: "وزنة",
+                        subtitle: "شاهي مضبوط، كل مرة",
+                        desc: "تطبيق يساعدك تضبط شاهيّك بدقة. اختر ماركتك، ومذاقك، وكمية الموية، وخل الباقي على وزنة.",
+                        primaryCta: "تحميل التطبيق",
+                        secondaryCta: "معرفة المزيد",
+                        badges: ["مجاني بالكامل", "يدعم العربية والإنجليزية"]
+                    },
+                    about: {
+                        kicker: "عن التطبيق",
+                        title: "نبذة عن وزنة",
+                        desc: "تطبيق يساعدك تضبط شاهيّك كل مرة. تختار ماركة الشاي، مذاق الشاهي (وسط، ثقيل أو بدون سكر)، وكمية الموية، ووزنة يحسب لك بالضبط كمية الشاي والسكر بالغرام مع وقت الخدرة المناسب، مع خطوات تحضير واضحة ومؤقّت جاهز."
+                    },
+                    featuresSection: { title: "مميزات التطبيق", subtitle: "كل اللي تحتاجه عشان تضبط الكيف" },
+                    features: [
+                        { title: "طعم ثابت ودقّة وزن", desc: "يعطيك نفس مذاق الشاهي كل مرة بدون ما يعقد، مع حساب دقيق لكمية الشاي والسكر بالغرام." },
+                        { title: "تحكّم بالكمية", desc: "تقدر تزيد أو تقلل كمية الشاهي مع الحفاظ على نفس النكهة والمقادير الموزونة." },
+                        { title: "يدعم ماركات مختلفة", desc: "تختار من تشكيلة واسعة من ماركات ومنتجات الشاهي المشهورة وتضبط لكل وحدة وزنيتها." },
+                        { title: "سهولة الاستخدام", desc: "واجهة بسيطة وخطوات واضحة تخلّي أي شخص يضبط الشاهي من أول استخدام." },
+                        { title: "مؤقّت مدمج", desc: "ينبهك وقت ما تخلص الخدرة عشان تشرب الشاهي في وقته المثالي." },
+                        { title: "يدعم لغتين", desc: "تقدر تستخدم التطبيق بالعربي أو بالإنجليزي حسب اللي يريحك." }
+                    ],
+                    how: { title: "كيف تستخدم وزنة؟", subtitle: "5 خطوات بسيطة لكوب شاهي موزون", steps: ["اختر الماركة", "حدد المذاق", "أدخل الماء", "الوزنة جاهزة", "اضبط المؤقت"] },
+                    target: {
+                        title: "لمن وزنة؟",
+                        subtitle: "الحل المثالي لكل محبي الشاهي",
+                        list: [
+                            { title: "للعوائل والبيت", desc: "يخلي طعم الشاهي ثابت لكل أفراد البيت، خصوصًا لو فيه أكثر من واحد يعد الشاهي." },
+                            { title: "للكشتات", desc: "يساعدك تضبط الشاهي لأي عدد، وتكرر نفس النتيجة حتى لو تغير حجم الإبريق." },
+                            { title: "لمحلات تقديم الشاي", desc: "يوحّد وصفة الشاهي بين العاملين، عشان الزبون يلقى نفس الطعم في كل مرة." },
+                            { title: "للفود تركس", desc: "يفيد وقت الزحمة، إعداد سريع ووصفة جاهزة لأي عامل جديد ينضم للفريق." }
+                        ]
+                    },
+                    faqs: {
+                        title: "الأسئلة الشائعة",
+                        list: [
+                            { q: "هل التطبيق مجاني؟", a: "نعم، التطبيق مجاني بالكامل." },
+                            { q: "هل يدعم وزنات الشاهي بدون سكر؟", a: "نعم، تقدر تختار خيار 'بدون سكر' من داخل التطبيق." },
+                            { q: "هل أقدر أستخدمه بدون ميزان؟", a: "في الوقت الحالي التطبيق يعرض لك الوزنات بالغرامات، لذلك تحتاج إلى ميزان لضمان طعم مضبوط دايمًا." },
+                            { q: "كيف أطلب إضافة براند؟", a: "تقدر تتواصل معنا عبر الإيميل وتذكر اسم البراند ونوع الشاهي، ونسعى نضيفه في التحديثات القادمة." }
+                        ]
+                    },
+                    requirements: {
+                        title: "وش تحتاج قبل تبدأ؟",
+                        items: ["إبريق الشاهي وموية", "شاهي من الماركات المدعومة", "ميزان مطبخ رقمي (مهم جداً)"],
+                        badge: { value: "100%", desc: "مجاني وبدون إعلانات" }
+                    },
+                    footerBlurb: "تطبيق وزنة يساعدك تضبط الشاهي باحترافية. مناسب للكشتات، البيوت، والمحلات التجارية.",
+                    screenshots: [
+                        "اختر علامة الشاي التجارية",
+                        "اختر المنتج، كمية الماء والمذاق اللي يناسبك",
+                        "احصل على الوزنة المناسبة",
+                        "تعليمات واضحة ومؤقت مدمج"
+                    ]
+                },
+                en: {
+                    nav: { home: "Home", about: "About", features: "Features", how: "How it works", faq: "FAQ", contact: "Contact", langToggle: "عربي" },
+                    hero: {
+                        title: "Wznah",
+                        subtitle: "Perfect tea, every time",
+                        desc: "The app that helps you brew tea precisely. Pick your brand, taste, and water amount—Wznah handles the rest.",
+                        primaryCta: "Download the app",
+                        secondaryCta: "Learn more",
+                        badges: ["Free forever", "Arabic & English supported"]
+                    },
+                    about: {
+                        kicker: "About the app",
+                        title: "About Wznah",
+                        desc: "Wznah helps you brew consistent tea every time. Choose your tea brand, preferred taste (medium, strong, or sugar-free), and water amount. Wznah calculates exact grams of tea and sugar plus the ideal steep time, with clear steps and a built-in timer."
+                    },
+                    featuresSection: { title: "App features", subtitle: "Everything you need for a perfect brew" },
+                    features: [
+                        { title: "Consistent taste & precise weights", desc: "Get the same great flavor every time with exact tea and sugar grams." },
+                        { title: "Adjust servings", desc: "Increase or decrease tea quantity while keeping flavor balanced." },
+                        { title: "Supports many brands", desc: "Pick from popular tea brands and products with preset weights." },
+                        { title: "Easy to use", desc: "Simple steps and a clear interface for anyone to brew right away." },
+                        { title: "Built-in timer", desc: "Alerts you when steeping is done for the perfect cup." },
+                        { title: "Bilingual support", desc: "Use the app in Arabic or English—your choice." }
+                    ],
+                    how: { title: "How to use Wznah", subtitle: "5 simple steps to a balanced cup", steps: ["Choose the brand", "Set the taste", "Add water", "Weights ready", "Set the timer"] },
+                    target: {
+                        title: "Who is Wznah for?",
+                        subtitle: "The perfect helper for tea lovers",
+                        list: [
+                            { title: "Families & home", desc: "Keep the same taste for everyone, even when multiple people brew." },
+                            { title: "Camping trips", desc: "Brew for any group size with consistent results every time." },
+                            { title: "Tea shops", desc: "Standardize recipes across staff so customers get the same cup." },
+                            { title: "Food trucks", desc: "Fast prep and ready recipes for new team members during rush hour." }
+                        ]
+                    },
+                    faqs: {
+                        title: "FAQ",
+                        list: [
+                            { q: "Is the app free?", a: "Yes, the app is completely free." },
+                            { q: "Does it support sugar-free recipes?", a: "Yes, choose the “Sugar-free” option in the app." },
+                            { q: "Can I use it without a scale?", a: "Currently weights are shown in grams, so a kitchen scale is needed for consistent results." },
+                            { q: "How do I request a brand?", a: "Email us with the brand and tea type, and we’ll try to add it in future updates." }
+                        ]
+                    },
+                    requirements: {
+                        title: "What you need before you start",
+                        items: ["Teapot and water", "Tea from supported brands", "Digital kitchen scale (very important)"],
+                        badge: { value: "100%", desc: "Free and ad-free" }
+                    },
+                    footerBlurb: "Wznah helps you brew tea like a pro. Great for trips, home, and tea shops.",
+                    screenshots: [
+                        "Pick your tea brand",
+                        "Choose product, water, and taste that suits you",
+                        "Get the exact weights",
+                        "Clear instructions with a built-in timer"
+                    ]
+                }
+            };
+
+            const baseScreens = [
+                { src: "./images/brand_screen.png" },
+                { src: "./images/product_screen.png" },
+                { src: "./images/weight_screen.png" },
+                { src: "./images/timer_screen.png" }
             ];
+
+            const featureIcons = [
+                <Scale className="w-8 h-8 text-[#EB6340]" />,
+                <CheckCircle className="w-8 h-8 text-[#EB6340]" />,
+                <Store className="w-8 h-8 text-[#EB6340]" />,
+                <Smartphone className="w-8 h-8 text-[#EB6340]" />,
+                <Clock className="w-8 h-8 text-[#EB6340]" />,
+                <Globe className="w-8 h-8 text-[#EB6340]" />
+            ];
+
+            const targetIcons = [
+                <Users className="w-6 h-6" />,
+                <Flame className="w-6 h-6" />,
+                <Coffee className="w-6 h-6" />,
+                <Truck className="w-6 h-6" />
+            ];
+
+            const stepIcons = [<Store />, <Leaf />, <Droplets />, <Scale />, <Clock />];
+
+            const t = translations[lang];
+
+            const screenshots = baseScreens.map((shot, idx) => ({ ...shot, caption: t.screenshots[idx] }));
+
+            const features = t.features.map((item, idx) => ({ ...item, icon: featureIcons[idx] }));
+
+            const targetAudience = t.target.list.map((item, idx) => ({ ...item, icon: targetIcons[idx] }));
+
+            const steps = t.how.steps.map((title, idx) => ({ title, icon: stepIcons[idx] }));
 
             useEffect(() => {
                 const interval = setInterval(() => {
-                setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screenshots.length);
+                    setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screenshots.length);
                 }, 3000);
                 return () => clearInterval(interval);
             }, [screenshots.length]);
+
+            useEffect(() => {
+                document.documentElement.lang = isAr ? 'ar' : 'en';
+                document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+            }, [isAr]);
 
             const toggleAccordion = (index) => setActiveAccordion(activeAccordion === index ? null : index);
 
@@ -70,39 +221,8 @@
                 }
             };
 
-            const features = [
-                { title: "طعم ثابت ودقّة وزن", desc: "يعطيك نفس مذاق الشاهي كل مرة بدون ما يعقد، مع حساب دقيق لكمية الشاي والسكر بالغرام.", icon: <Scale className="w-8 h-8 text-[#EB6340]" /> },
-                { title: "تحكّم بالكمية", desc: "تقدر تزيد أو تقلل كمية الشاهي مع الحفاظ على نفس النكهة والمقادير الموزونة.", icon: <CheckCircle className="w-8 h-8 text-[#EB6340]" /> },
-                { title: "يدعم ماركات مختلفة", desc: "تختار من تشكيلة واسعة من ماركات ومنتجات الشاهي المشهورة وتضبط لكل وحدة وزنيتها.", icon: <Store className="w-8 h-8 text-[#EB6340]" /> },
-                { title: "سهولة الاستخدام", desc: "واجهة بسيطة وخطوات واضحة تخلّي أي شخص يضبط الشاهي من أول استخدام.", icon: <Smartphone className="w-8 h-8 text-[#EB6340]" /> },
-                { title: "مؤقّت مدمج", desc: "ينبهك وقت ما تخلص الخدرة عشان تشرب الشاهي في وقته المثالي.", icon: <Clock className="w-8 h-8 text-[#EB6340]" /> },
-                { title: "يدعم لغتين", desc: "تقدر تستخدم التطبيق بالعربي أو بالإنجليزي حسب اللي يريحك.", icon: <Globe className="w-8 h-8 text-[#EB6340]" /> }
-            ];
-
-            const targetAudience = [
-                { title: "للعوائل والبيت", desc: "يخلي طعم الشاهي ثابت لكل أفراد البيت، خصوصًا لو فيه أكثر من واحد يعد الشاهي.", icon: <Users className="w-6 h-6" /> },
-                { title: "للكشتات", desc: "يساعدك تضبط الشاهي لأي عدد، وتكرر نفس النتيجة حتى لو تغير حجم الإبريق.", icon: <Flame className="w-6 h-6" /> },
-                { title: "لمحلات تقديم الشاي", desc: "يوحّد وصفة الشاهي بين العاملين، عشان الزبون يلقى نفس الطعم في كل مرة.", icon: <Coffee className="w-6 h-6" /> },
-                { title: "للفود تركس", desc: "يفيد وقت الزحمة، إعداد سريع ووصفة جاهزة لأي عامل جديد ينضم للفريق.", icon: <Truck className="w-6 h-6" /> }
-            ];
-
-            const steps = [
-                { title: "اختر الماركة", icon: <Store /> },
-                { title: "حدد المذاق", icon: <Leaf /> },
-                { title: "أدخل الماء", icon: <Droplets /> },
-                { title: "الوزنة جاهزة", icon: <Scale /> },
-                { title: "اضبط المؤقت", icon: <Clock /> }
-            ];
-
-            const faqs = [
-                { q: "هل التطبيق مجاني؟", a: "نعم، التطبيق مجاني بالكامل." },
-                { q: "هل يدعم وزنات الشاهي بدون سكر؟", a: "نعم، تقدر تختار خيار 'بدون سكر' من داخل التطبيق." },
-                { q: "هل أقدر أستخدمه بدون ميزان؟", a: "في الوقت الحالي التطبيق يعرض لك الوزنات بالغرامات، لذلك تحتاج إلى ميزان لضمان طعم مضبوط دايمًا." },
-                { q: "كيف أطلب إضافة براند؟", a: "تقدر تتواصل معنا عبر الإيميل وتذكر اسم البراند ونوع الشاهي، ونسعى نضيفه في التحديثات القادمة." }
-            ];
-
             return (
-                <div dir="rtl" className="font-sans text-gray-800 bg-white min-h-screen selection:bg-[#EB6340]/10 selection:text-[#EB6340]">
+                <div dir={isAr ? "rtl" : "ltr"} className="font-sans text-gray-800 bg-white min-h-screen selection:bg-[#EB6340]/10 selection:text-[#EB6340]">
                 
                 {/* Navigation */}
                 <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
@@ -111,21 +231,21 @@
                         <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
                             <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
                         </div>
-                        <span className="text-2xl font-bold text-gray-900">وزنة</span>
+                        <span className="text-2xl font-bold text-gray-900">{t.hero.title}</span>
                     </div>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <button onClick={() => scrollToSection('home')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">الرئيسية</button>
-                        <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">عن التطبيق</button>
-                        <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">المميزات</button>
-                        <button onClick={() => scrollToSection('how')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">كيف تستخدم وزنة؟</button>
-                        <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">الأسئلة الشائعة</button>
-                        <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">اتصل بنا</button>
+                        <button onClick={() => scrollToSection('home')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.home}</button>
+                        <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.about}</button>
+                        <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.features}</button>
+                        <button onClick={() => scrollToSection('how')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.how}</button>
+                        <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.faq}</button>
+                        <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.contact}</button>
                     </div>
 
                     <div className="hidden md:flex items-center gap-4">
-                        <button className="text-gray-500 font-medium hover:text-[#EB6340]">En</button>
-                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] hover:bg-[#d7542f] text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-[0_12px_30px_-12px_rgba(235,99,64,0.6)]">حمل التطبيق مجاناً</a>
+                        <button className="text-gray-500 font-medium hover:text-[#EB6340]" onClick={() => setLang(isAr ? 'en' : 'ar')}>{t.nav.langToggle}</button>
+                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] hover:bg-[#d7542f] text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-[0_12px_30px_-12px_rgba(235,99,64,0.6)]">{t.hero.primaryCta}</a>
                     </div>
 
                     <button className="md:hidden text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -135,12 +255,15 @@
 
                     {isMenuOpen && (
                     <div className="md:hidden bg-white border-t border-gray-100 px-4 py-6 flex flex-col gap-4 shadow-xl">
-                        <button onClick={() => scrollToSection('home')} className="text-right text-gray-700 font-medium py-2">الرئيسية</button>
-                        <button onClick={() => scrollToSection('about')} className="text-right text-gray-700 font-medium py-2">عن التطبيق</button>
-                        <button onClick={() => scrollToSection('features')} className="text-right text-gray-700 font-medium py-2">المميزات</button>
-                        <button onClick={() => scrollToSection('how')} className="text-right text-gray-700 font-medium py-2">كيف تستخدم وزنة؟</button>
-                        <button onClick={() => scrollToSection('faq')} className="text-right text-gray-700 font-medium py-2">الأسئلة الشائعة</button>
-                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] text-white text-center py-3 rounded-xl font-bold">حمل التطبيق</a>
+                        <button onClick={() => scrollToSection('home')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.home}</button>
+                        <button onClick={() => scrollToSection('about')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.about}</button>
+                        <button onClick={() => scrollToSection('features')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.features}</button>
+                        <button onClick={() => scrollToSection('how')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.how}</button>
+                        <button onClick={() => scrollToSection('faq')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.faq}</button>
+                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] text-white text-center py-3 rounded-xl font-bold">{t.hero.primaryCta}</a>
+                        <button onClick={() => { setLang(isAr ? 'en' : 'ar'); setIsMenuOpen(false); }} className="text-[#EB6340] font-semibold text-center py-2 border border-[#EB6340]/30 rounded-xl">
+                            {t.nav.langToggle}
+                        </button>
                     </div>
                     )}
                 </nav>
@@ -187,22 +310,22 @@
                         </div>
 
                         {/* Text Content */}
-                        <div className="w-full md:w-1/2 text-center md:text-right">
+                        <div className={`w-full md:w-1/2 text-center ${isAr ? 'md:text-right' : 'md:text-left'}`}>
                         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
-                            وزنة <br />
-                            <span className="text-3xl md:text-5xl text-gray-500 font-bold mt-2 block">شاهي مضبوط، كل مرة</span>
+                            {t.hero.title} <br />
+                            <span className="text-3xl md:text-5xl text-gray-500 font-bold mt-2 block">{t.hero.subtitle}</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">تطبيق يساعدك تضبط شاهيّك بدقة. اختر المنتج وحدد المذاق اللي يناسبك وكمية الموية، وخل الباقي على وزنة.</p>
+                        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">{t.hero.desc}</p>
                         
                         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                             <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-[#EB6340] hover:bg-[#d7542f] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-[0_15px_35px_-15px_rgba(235,99,64,0.7)]">
-                            <Download size={24} /> تحميل التطبيق
+                            <Download size={24} /> {t.hero.primaryCta}
                             </a>
-                            <button onClick={() => scrollToSection('about')} className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-gray-600 border-2 border-gray-200 hover:border-[#EB6340] hover:text-[#EB6340] transition-all">معرفة المزيد</button>
+                            <button onClick={() => scrollToSection('about')} className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-gray-600 border-2 border-gray-200 hover:border-[#EB6340] hover:text-[#EB6340] transition-all">{t.hero.secondaryCta}</button>
                         </div>
                         <div className="mt-12 flex items-center justify-center md:justify-start gap-6 text-gray-400 text-sm font-medium">
-                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> مجاني بالكامل</span>
-                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> يدعم العربية</span>
+                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> {t.hero.badges[0]}</span>
+                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> {t.hero.badges[1]}</span>
                         </div>
                         </div>
                     </div>
@@ -212,10 +335,10 @@
                 {/* About Section */}
                 <section id="about" className="py-20 bg-gray-50">
                     <div className="container mx-auto px-4 max-w-3xl text-center">
-                        <span className="text-[#EB6340] font-bold tracking-wider uppercase text-sm mb-2 block">عن التطبيق</span>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6">نبذة عن وزنة</h2>
+                        <span className="text-[#EB6340] font-bold tracking-wider uppercase text-sm mb-2 block">{t.about.kicker}</span>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.about.title}</h2>
                         <p className="text-xl text-gray-600 leading-10">
-                            تطبيق يساعدك تضبط شاهيّك كل مرة. تختار ماركة الشاي، مذاق الشاهي (وسط، ثقيل أو بدون سكر)، وكمية الموية، ووزنة يحسب لك بالضبط كمية الشاي والسكر بالغرام مع وقت الخدرة المناسب، مع خطوات تحضير واضحة ومؤقّت جاهز.
+                            {t.about.desc}
                         </p>
                     </div>
                 </section>
@@ -224,8 +347,8 @@
                 <section id="features" className="py-20 px-4">
                     <div className="container mx-auto max-w-6xl">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">مميزات التطبيق</h2>
-                        <p className="text-gray-500">كل اللي تحتاجه عشان تضبط الكيف</p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.featuresSection.title}</h2>
+                        <p className="text-gray-500">{t.featuresSection.subtitle}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -250,8 +373,8 @@
                     </div>
                     <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">كيف تستخدم وزنة؟</h2>
-                        <p className="text-gray-400">5 خطوات بسيطة لكوب شاهي موزون</p>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.how.title}</h2>
+                        <p className="text-gray-400">{t.how.subtitle}</p>
                     </div>
                     <div className="flex flex-wrap justify-center gap-6 md:gap-10">
                         {steps.map((step, idx) => (
@@ -270,11 +393,11 @@
 
                 {/* Target Audience */}
                 <section className="py-20 px-4 bg-[#EB6340]/10">
-                    <div className="container mx-auto max-w-6xl">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-gray-900 mb-4">لمن وزنة؟</h2>
-                            <p className="text-gray-500">الحل المثالي لكل محبي الشاهي</p>
-                        </div>
+        <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.target.title}</h2>
+                <p className="text-gray-500">{t.target.subtitle}</p>
+            </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {targetAudience.map((item, idx) => (
                                 <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-100 hover:-translate-y-1 transition-transform">
@@ -290,11 +413,11 @@
                 {/* FAQ */}
                 <section id="faq" className="py-20 px-4 bg-white">
                     <div className="container mx-auto max-w-3xl">
-                    <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900 mb-4">الأسئلة الشائعة</h2></div>
+                    <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900 mb-4">{t.faqs.title}</h2></div>
                     <div className="space-y-4">
-                        {faqs.map((faq, idx) => (
+                        {t.faqs.list.map((faq, idx) => (
                         <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden">
-                            <button onClick={() => toggleAccordion(idx)} className="w-full flex items-center justify-between p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                            <button onClick={() => toggleAccordion(idx)} className={`w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}>
                             <span className="font-bold text-gray-900">{faq.q}</span>
                             {activeAccordion === idx ? <ChevronUp className="text-[#EB6340]"/> : <ChevronDown className="text-gray-400"/>}
                             </button>
@@ -307,18 +430,18 @@
 
         {/* App Requirements */}
       <section className="py-16 px-4 border-t border-gray-100">
-          <div className="container mx-auto max-w-4xl bg-[#EB6340] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-right shadow-2xl shadow-[0_25px_45px_-20px_rgba(235,99,64,0.6)]">
+          <div className={`container mx-auto max-w-4xl bg-[#EB6340] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center ${isAr ? 'md:text-right' : 'md:text-left'} shadow-2xl shadow-[0_25px_45px_-20px_rgba(235,99,64,0.6)]`}>
               <div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">وش تحتاج قبل تبدأ؟</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">{t.requirements.title}</h2>
                   <ul className="text-[#FDD7CE] space-y-2 text-lg">
-                      <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> إبريق الشاهي وموية</li>
-                      <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> شاهي من الماركات المدعومة</li>
-                      <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> ميزان مطبخ رقمي (مهم جداً)</li>
+                      {t.requirements.items.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> {item}</li>
+                      ))}
                   </ul>
               </div>
               <div className="bg-white text-[#EB6340] p-6 rounded-2xl min-w-[200px]">
-                  <div className="text-4xl font-bold mb-1">100%</div>
-                  <div className="text-sm font-medium">مجاني وبدون إعلانات</div>
+                  <div className="text-4xl font-bold mb-1">{t.requirements.badge.value}</div>
+                  <div className="text-sm font-medium">{t.requirements.badge.desc}</div>
               </div>
           </div>
       </section>
@@ -332,20 +455,25 @@
                                     <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
                                         <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
                                     </div>
-                                    <span className="text-2xl font-bold text-gray-900">وزنة</span>
+                                <span className="text-2xl font-bold text-gray-900">{t.hero.title}</span>
                                 </div>
-                                <p className="text-gray-500 leading-relaxed mb-6 max-w-sm">تطبيق وزنة يساعدك تضبط الشاهي باحترافية. مناسب للكشتات، البيوت، والمحلات التجارية.</p>
+                                <p className="text-gray-500 leading-relaxed mb-6 max-w-sm">{t.footerBlurb}</p>
+                                <div className={`mt-4 flex ${isAr ? 'justify-end pr-6' : 'justify-start'}`}>
+                                    <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">
+                                        <img src="./images/Download_on_the_App_Store_Badge.png" alt={isAr ? "حمل من متجر App Store" : "Download on the App Store"} className="w-40 h-auto" />
+                                    </a>
+                                </div>
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-6">روابط سريعة</h4>
+                                <h4 className="font-bold text-gray-900 mb-6">{isAr ? "روابط سريعة" : "Quick links"}</h4>
                                 <ul className="space-y-4 text-gray-600">
-                                    <li><button onClick={() => scrollToSection('home')} className="hover:text-[#EB6340]">الرئيسية</button></li>
-                                    <li><button onClick={() => scrollToSection('features')} className="hover:text-[#EB6340]">المميزات</button></li>
-                                    <li><button onClick={() => scrollToSection('faq')} className="hover:text-[#EB6340]">الأسئلة الشائعة</button></li>
+                                    <li><button onClick={() => scrollToSection('home')} className="hover:text-[#EB6340]">{t.nav.home}</button></li>
+                                    <li><button onClick={() => scrollToSection('features')} className="hover:text-[#EB6340]">{t.nav.features}</button></li>
+                                    <li><button onClick={() => scrollToSection('faq')} className="hover:text-[#EB6340]">{t.nav.faq}</button></li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-6">تواصل معنا</h4>
+                                <h4 className="font-bold text-gray-900 mb-6">{isAr ? "تواصل معنا" : "Contact us"}</h4>
                                 <ul className="space-y-4 text-gray-600">
                                     <li>
                                         <a href="mailto:wznahapp@gmail.com" className="hover:text-[#EB6340]">wznahapp@gmail.com</a>
@@ -364,9 +492,9 @@
                             </div>
                         </div>
                         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-                            <p>جميع الحقوق محفوظة © {new Date().getFullYear()} تطبيق وزنة</p>
+                            <p>{isAr ? `جميع الحقوق محفوظة © ${new Date().getFullYear()} تطبيق وزنة` : `All rights reserved © ${new Date().getFullYear()} Wznah App`}</p>
                     <div className="flex gap-6">
-                        <a href="home/privacy-policy.html" className="hover:text-gray-900">سياسة الخصوصية</a>
+                        <a href="home/privacy-policy.html" className="hover:text-gray-900">{isAr ? "سياسة الخصوصية" : "Privacy Policy"}</a>
                     </div>
                 </div>
             </div>
