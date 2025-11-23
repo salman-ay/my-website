@@ -1,416 +1,373 @@
-import React, { useState, useEffect } from 'react';
-import { Download, Clock, Scale, Globe, CheckCircle, ChevronDown, ChevronUp, Menu, X, Coffee, Users, Store, Truck, Leaf, Droplets, Flame, ArrowRight, Smartphone } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وزنة - شاهي مضبوط كل مرة</title>
+    
+    <!-- استدعاء Tailwind CSS للتصميم -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- تهيئة الخطوط (Cairo Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        /* إخفاء شريط التمرير في الموك أب */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 
-const WaznahLanding = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeAccordion, setActiveAccordion] = useState(null);
-  // حالة تتبع الصورة الحالية في شاشة الهاتف
-  const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
-
-  // مصفوفة صور الشاشات من المرفقات
-  const screenshots = [
-    "uploaded:image.png-bf76cc6d-edee-45bc-9734-d8e5ea19020f", // شاشة البراندات
-    "uploaded:image.png-1d6facf4-fbb7-4b3a-8c9e-3ba1eeb774c7", // شاشة اختيار المنتج والمذاق
-    "uploaded:image.png-e3d01b75-c0e8-4932-8d9c-082001ba2f46", // شاشة الوزنة
-    "uploaded:image.png-0d8e76be-1cf8-473b-94d6-a9dffeade60a"  // شاشة المؤقت
-  ];
-
-  // تأثير لتغيير الصورة كل 3 ثواني
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screenshots.length);
-    }, 3000); // التغيير كل 3000 ميلي ثانية (3 ثواني)
-
-    return () => clearInterval(interval); // تنظيف المؤقت عند الخروج
-  }, [screenshots.length]);
-
-
-  const toggleAccordion = (index) => {
-    setActiveAccordion(activeAccordion === index ? null : index);
-  };
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
+    <!-- خريطة الاستيراد (Import Map) لاستخدام React و Lucide من المتصفح مباشرة -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
+      }
     }
-  };
+    </script>
+    
+    <!-- Babel لترجمة كود React داخل المتصفح -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-white text-gray-800">
+    <div id="root"></div>
 
-  // بيانات المميزات
-  const features = [
-    {
-      title: "طعم ثابت ودقّة وزن",
-      desc: "يعطيك نفس مذاق الشاهي كل مرة بدون ما يعقد، مع حساب دقيق لكمية الشاي والسكر بالغرام.",
-      icon: <Scale className="w-8 h-8 text-orange-500" />
-    },
-    {
-      title: "تحكّم بالكمية",
-      desc: "تقدر تزيد أو تقلل كمية الشاهي مع الحفاظ على نفس النكهة والمقادير الموزونة.",
-      icon: <CheckCircle className="w-8 h-8 text-orange-500" />
-    },
-    {
-      title: "يدعم ماركات مختلفة",
-      desc: "تختار من تشكيلة واسعة من ماركات ومنتجات الشاهي المشهورة وتضبط لكل وحدة وزنيتها.",
-      icon: <Store className="w-8 h-8 text-orange-500" />
-    },
-    {
-      title: "سهولة الاستخدام",
-      desc: "واجهة بسيطة وخطوات واضحة تخلّي أي شخص يضبط الشاهي من أول استخدام.",
-      icon: <Smartphone className="w-8 h-8 text-orange-500" />
-    },
-    {
-      title: "مؤقّت مدمج",
-      desc: "ينبهك وقت ما تخلص الخدرة عشان تشرب الشاهي في وقته المثالي.",
-      icon: <Clock className="w-8 h-8 text-orange-500" />
-    },
-    {
-      title: "يدعم لغتين",
-      desc: "تقدر تستخدم التطبيق بالعربي أو بالإنجليزي حسب اللي يريحك.",
-      icon: <Globe className="w-8 h-8 text-orange-500" />
-    }
-  ];
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { Download, Clock, Scale, Globe, CheckCircle, ChevronDown, ChevronUp, Menu, X, Coffee, Users, Store, Truck, Leaf, Droplets, Flame, Smartphone } from 'lucide-react';
 
-  // بيانات الفئات المستهدفة
-  const targetAudience = [
-    {
-      title: "للكشتات",
-      desc: "يساعدك تضبط الشاهي لأي عدد، وتكرر نفس النتيجة حتى لو تغير حجم الإبريق.",
-      icon: <Flame className="w-6 h-6" />
-    },
-    {
-      title: "للعوائل والبيت",
-      desc: "يخلي طعم الشاهي ثابت لكل أفراد البيت، خصوصًا لو فيه أكثر من واحد يعد الشاهي.",
-      icon: <Users className="w-6 h-6" />
-    },
-    {
-      title: "للكافيهات",
-      desc: "يوحّد وصفة الشاهي بين العاملين، عشان الزبون يلقى نفس الطعم في كل مرة.",
-      icon: <Coffee className="w-6 h-6" />
-    },
-    {
-      title: "للفود تركس",
-      desc: "يفيد وقت الزحمة، إعداد سريع ووصفة جاهزة لأي عامل جديد ينضم للفريق.",
-      icon: <Truck className="w-6 h-6" />
-    }
-  ];
+        const WaznahLanding = () => {
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [activeAccordion, setActiveAccordion] = useState(null);
+            const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
 
-  // خطوات الاستخدام
-  const steps = [
-    { title: "اختر الماركة", icon: <Store /> },
-    { title: "حدد المذاق", icon: <Leaf /> },
-    { title: "أدخل الماء", icon: <Droplets /> },
-    { title: "الوزنة جاهزة", icon: <Scale /> },
-    { title: "اضبط المؤقت", icon: <Clock /> }
-  ];
+            // هام: تأكد من أن أسماء الصور في مجلد images تطابق هذه الأسماء
+            const screenshots = [
+                "./images/brand_screen.png",
+                "./images/product_screen.png",
+                "./images/weight_screen.png",
+                "./images/timer_screen.png"
+            ];
 
-  // الأسئلة الشائعة
-  const faqs = [
-    { q: "هل التطبيق مجاني؟", a: "نعم، التطبيق مجاني بالكامل." },
-    { q: "هل يدعم وزنات الشاهي بدون سكر؟", a: "نعم، تقدر تختار خيار 'بدون سكر' من داخل التطبيق." },
-    { q: "هل أقدر أستخدمه بدون ميزان؟", a: "في الوقت الحالي التطبيق يعرض لك الوزنات بالغرامات، لذلك تحتاج إلى ميزان لضمان طعم مضبوط دايمًا." },
-    { q: "كيف أطلب إضافة براند؟", a: "تقدر تتواصل معنا عبر الإيميل أو واتساب الأعمال وتذكر اسم البراند ونوع الشاهي، ونسعى نضيفه في التحديثات القادمة." }
-  ];
+            useEffect(() => {
+                const interval = setInterval(() => {
+                setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screenshots.length);
+                }, 3000);
+                return () => clearInterval(interval);
+            }, [screenshots.length]);
 
-  return (
-    <div dir="rtl" className="font-sans text-gray-800 bg-white min-h-screen selection:bg-orange-100 selection:text-orange-600">
-      
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-             {/* Logo Placeholder */}
-            <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 font-bold text-xl">
-              و
-            </div>
-            <span className="text-2xl font-bold text-gray-900">وزنة</span>
-          </div>
+            const toggleAccordion = (index) => setActiveAccordion(activeAccordion === index ? null : index);
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-600 hover:text-orange-600 font-medium transition-colors">الرئيسية</button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-orange-600 font-medium transition-colors">عن التطبيق</button>
-            <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-orange-600 font-medium transition-colors">المميزات</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-orange-600 font-medium transition-colors">اتصل بنا</button>
-          </div>
+            const scrollToSection = (id) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                }
+            };
 
-          <div className="hidden md:flex items-center gap-4">
-             <button className="text-gray-500 font-medium hover:text-orange-600">En</button>
-            <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-500/20">
-              حمل التطبيق مجاناً
-            </a>
-          </div>
+            const features = [
+                { title: "طعم ثابت ودقّة وزن", desc: "يعطيك نفس مذاق الشاهي كل مرة بدون ما يعقد، مع حساب دقيق لكمية الشاي والسكر بالغرام.", icon: <Scale className="w-8 h-8 text-[#EB6340]" /> },
+                { title: "تحكّم بالكمية", desc: "تقدر تزيد أو تقلل كمية الشاهي مع الحفاظ على نفس النكهة والمقادير الموزونة.", icon: <CheckCircle className="w-8 h-8 text-[#EB6340]" /> },
+                { title: "يدعم ماركات مختلفة", desc: "تختار من تشكيلة واسعة من ماركات ومنتجات الشاهي المشهورة وتضبط لكل وحدة وزنيتها.", icon: <Store className="w-8 h-8 text-[#EB6340]" /> },
+                { title: "سهولة الاستخدام", desc: "واجهة بسيطة وخطوات واضحة تخلّي أي شخص يضبط الشاهي من أول استخدام.", icon: <Smartphone className="w-8 h-8 text-[#EB6340]" /> },
+                { title: "مؤقّت مدمج", desc: "ينبهك وقت ما تخلص الخدرة عشان تشرب الشاهي في وقته المثالي.", icon: <Clock className="w-8 h-8 text-[#EB6340]" /> },
+                { title: "يدعم لغتين", desc: "تقدر تستخدم التطبيق بالعربي أو بالإنجليزي حسب اللي يريحك.", icon: <Globe className="w-8 h-8 text-[#EB6340]" /> }
+            ];
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+            const targetAudience = [
+                { title: "للكشتات", desc: "يساعدك تضبط الشاهي لأي عدد، وتكرر نفس النتيجة حتى لو تغير حجم الإبريق.", icon: <Flame className="w-6 h-6" /> },
+                { title: "للعوائل والبيت", desc: "يخلي طعم الشاهي ثابت لكل أفراد البيت، خصوصًا لو فيه أكثر من واحد يعد الشاهي.", icon: <Users className="w-6 h-6" /> },
+                { title: "للكافيهات", desc: "يوحّد وصفة الشاهي بين العاملين، عشان الزبون يلقى نفس الطعم في كل مرة.", icon: <Coffee className="w-6 h-6" /> },
+                { title: "للفود تركس", desc: "يفيد وقت الزحمة، إعداد سريع ووصفة جاهزة لأي عامل جديد ينضم للفريق.", icon: <Truck className="w-6 h-6" /> }
+            ];
 
-        {/* Mobile Menu Dropdown */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 px-4 py-6 flex flex-col gap-4 shadow-xl">
-            <button onClick={() => scrollToSection('home')} className="text-right text-gray-700 font-medium py-2">الرئيسية</button>
-            <button onClick={() => scrollToSection('about')} className="text-right text-gray-700 font-medium py-2">عن التطبيق</button>
-            <button onClick={() => scrollToSection('features')} className="text-right text-gray-700 font-medium py-2">المميزات</button>
-            <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-orange-500 text-white text-center py-3 rounded-xl font-bold">
-              حمل التطبيق
-            </a>
-          </div>
-        )}
-      </nav>
+            const steps = [
+                { title: "اختر الماركة", icon: <Store /> },
+                { title: "حدد المذاق", icon: <Leaf /> },
+                { title: "أدخل الماء", icon: <Droplets /> },
+                { title: "الوزنة جاهزة", icon: <Scale /> },
+                { title: "اضبط المؤقت", icon: <Clock /> }
+            ];
 
-      {/* Hero Section */}
-      <header id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 px-4 relative overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
-            
-            {/* Left Side: Mockup (Appears Right in RTL) */}
-            <div className="relative w-full md:w-1/2 flex justify-center">
-              {/* Decorative Leaves (SVG Background) */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10 opacity-20 md:opacity-100 pointer-events-none">
-                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-green-500 fill-current">
-                    <path transform="translate(100 100)" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.2C93.5,8.8,82.2,21.9,71.6,33.5C60.9,45.1,50.8,55.2,39.2,63.4C27.6,71.6,14.5,77.9,0.7,76.7C-13.1,75.5,-27.2,66.8,-39.9,58.2C-52.6,49.6,-63.9,41.1,-73.1,30.3C-82.3,19.5,-89.4,6.4,-88.4,-6.2C-87.4,-18.8,-78.3,-30.9,-68,-41C-57.7,-51.1,-46.2,-59.2,-33.9,-67.2C-21.6,-75.2,-8.5,-83.1,3.4,-89C15.3,-94.9,30.5,-98.8,44.7,-76.4Z" />
-                  </svg>
-              </div>
-              <div className="absolute top-10 -right-10 text-green-400 animate-bounce delay-700 hidden md:block">
-                  <Leaf className="w-12 h-12 rotate-45" />
-              </div>
-              <div className="absolute bottom-10 -left-10 text-green-400 animate-bounce delay-1000 hidden md:block">
-                  <Leaf className="w-8 h-8 -rotate-12" />
-              </div>
+            const faqs = [
+                { q: "هل التطبيق مجاني؟", a: "نعم، التطبيق مجاني بالكامل." },
+                { q: "هل يدعم وزنات الشاهي بدون سكر؟", a: "نعم، تقدر تختار خيار 'بدون سكر' من داخل التطبيق." },
+                { q: "هل أقدر أستخدمه بدون ميزان؟", a: "في الوقت الحالي التطبيق يعرض لك الوزنات بالغرامات، لذلك تحتاج إلى ميزان لضمان طعم مضبوط دايمًا." },
+                { q: "كيف أطلب إضافة براند؟", a: "تقدر تتواصل معنا عبر الإيميل أو واتساب الأعمال وتذكر اسم البراند ونوع الشاهي، ونسعى نضيفه في التحديثات القادمة." }
+            ];
 
-              {/* iPhone 17 Mockup CSS - Adjusted to fit screenshots without cropping */}
-              <div className="relative w-[300px] h-[650px] bg-black rounded-[55px] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] border-[10px] border-black overflow-hidden ring-4 ring-gray-800/50 z-20">
+            return (
+                <div dir="rtl" className="font-sans text-gray-800 bg-white min-h-screen selection:bg-[#EB6340]/10 selection:text-[#EB6340]">
                 
-                {/* REMOVED CSS NOTCH: Screenshots already have UI elements/notch area */}
-                
-                {/* Screen Content Area with Slideshow */}
-                <div className="w-full h-full bg-black relative overflow-hidden rounded-[45px]">
-                    {screenshots.map((src, index) => (
-                      <img
-                        key={index}
-                        src={src}
-                        alt={`App Screenshot ${index + 1}`}
-                        // Changed to object-fill to force full image display inside container
-                        className={`absolute inset-0 w-full h-full object-fill transition-opacity duration-700 ease-in-out ${
-                          index === currentScreenIndex ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      />
-                    ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Text */}
-            <div className="w-full md:w-1/2 text-center md:text-right">
-              <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
-                وزنة <br />
-                <span className="text-3xl md:text-5xl text-gray-500 font-bold mt-2 block">شاهي مضبوط، كل مرة</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                تطبيق يساعدك تضبط شاهيّك بدقة. اختر ماركتك، ومذاقك، وكمية الموية، وخل الباقي على وزنة.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-orange-500/20">
-                  <Download size={24} />
-                  تحميل التطبيق
-                </a>
-                <button onClick={() => scrollToSection('about')} className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-gray-600 border-2 border-gray-200 hover:border-orange-500 hover:text-orange-500 transition-all">
-                  معرفة المزيد
-                </button>
-              </div>
-
-              <div className="mt-12 flex items-center justify-center md:justify-start gap-6 text-gray-400 text-sm font-medium">
-                  <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> مجاني بالكامل</span>
-                  <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> يدعم العربية</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </header>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-            <span className="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">عن التطبيق</span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">نبذة عن وزنة</h2>
-            <p className="text-xl text-gray-600 leading-10">
-                تطبيق يساعدك تضبط شاهيّك كل مرة. تختار ماركة الشاي، مذاق الشاهي (وسط، ثقيل أو بدون سكر)، وكمية الموية، ووزنة يحسب لك بالضبط كمية الشاي والسكر بالغرام مع وقت الخدرة المناسب، مع خطوات تحضير واضحة ومؤقّت جاهز.
-            </p>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">مميزات التطبيق</h2>
-            <p className="text-gray-500">كل اللي تحتاجه عشان تضبط الكيف</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section className="py-20 bg-gray-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-             <div className="absolute right-0 top-0 w-96 h-96 bg-orange-500 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
-             <div className="absolute left-0 bottom-0 w-96 h-96 bg-green-500 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
-        </div>
-
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">كيف تستخدم وزنة؟</h2>
-            <p className="text-gray-400">5 خطوات بسيطة لكوب شاهي موزون</p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-            {steps.map((step, idx) => (
-                <div key={idx} className="flex flex-col items-center relative">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-gray-700 bg-gray-800 flex items-center justify-center text-orange-500 mb-4 relative z-10 shadow-lg shadow-orange-500/10">
-                        {React.cloneElement(step.icon, { size: 32 })}
-                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm border-4 border-gray-900">
-                            {idx + 1}
+                {/* Navigation */}
+                <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+                    <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
+                            <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
                         </div>
+                        <span className="text-2xl font-bold text-gray-900">وزنة</span>
                     </div>
-                    <span className="font-bold text-lg">{step.title}</span>
-                    {idx < steps.length - 1 && (
-                         <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gray-800 -z-0"></div>
+
+                    <div className="hidden md:flex items-center gap-8">
+                        <button onClick={() => scrollToSection('home')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">الرئيسية</button>
+                        <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">عن التطبيق</button>
+                        <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">المميزات</button>
+                        <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">اتصل بنا</button>
+                    </div>
+
+                    <div className="hidden md:flex items-center gap-4">
+                        <button className="text-gray-500 font-medium hover:text-[#EB6340]">En</button>
+                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] hover:bg-[#d7542f] text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-[0_12px_30px_-12px_rgba(235,99,64,0.6)]">حمل التطبيق مجاناً</a>
+                    </div>
+
+                    <button className="md:hidden text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                    </div>
+
+                    {isMenuOpen && (
+                    <div className="md:hidden bg-white border-t border-gray-100 px-4 py-6 flex flex-col gap-4 shadow-xl">
+                        <button onClick={() => scrollToSection('home')} className="text-right text-gray-700 font-medium py-2">الرئيسية</button>
+                        <button onClick={() => scrollToSection('about')} className="text-right text-gray-700 font-medium py-2">عن التطبيق</button>
+                        <button onClick={() => scrollToSection('features')} className="text-right text-gray-700 font-medium py-2">المميزات</button>
+                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] text-white text-center py-3 rounded-xl font-bold">حمل التطبيق</a>
+                    </div>
                     )}
-                </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                </nav>
 
-      {/* Target Audience */}
-      <section className="py-20 px-4 bg-orange-50/50">
-        <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">لمن وزنة؟</h2>
-                <p className="text-gray-500">الحل المثالي لكل محبي الشاهي</p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {targetAudience.map((item, idx) => (
-                    <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-100 hover:-translate-y-1 transition-transform">
-                        <div className="w-14 h-14 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4">
-                            {item.icon}
+                {/* Hero Section */}
+                <header id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 px-4 relative overflow-hidden">
+                    <div className="container mx-auto max-w-6xl">
+                    <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
+                        
+                        {/* iPhone Mockup */}
+                        <div className="relative w-full md:w-1/2 flex justify-center">
+                            {/* Decorative Leaves */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10 opacity-20 md:opacity-100 pointer-events-none">
+                                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-green-500 fill-current">
+                                <path transform="translate(100 100)" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.2C93.5,8.8,82.2,21.9,71.6,33.5C60.9,45.1,50.8,55.2,39.2,63.4C27.6,71.6,14.5,77.9,0.7,76.7C-13.1,75.5,-27.2,66.8,-39.9,58.2C-52.6,49.6,-63.9,41.1,-73.1,30.3C-82.3,19.5,-89.4,6.4,-88.4,-6.2C-87.4,-18.8,-78.3,-30.9,-68,-41C-57.7,-51.1,-46.2,-59.2,-33.9,-67.2C-21.6,-75.2,-8.5,-83.1,3.4,-89C15.3,-94.9,30.5,-98.8,44.7,-76.4Z" />
+                                </svg>
+                            </div>
+                            <div className="absolute top-10 -right-10 text-green-400 animate-bounce delay-700 hidden md:block"><Leaf className="w-12 h-12 rotate-45" /></div>
+                            <div className="absolute bottom-10 -left-10 text-green-400 animate-bounce delay-1000 hidden md:block"><Leaf className="w-8 h-8 -rotate-12" /></div>
+
+                            {/* Phone Frame */}
+                            <div className="relative w-[300px] h-[650px] bg-black rounded-[55px] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] border-[10px] border-black overflow-hidden ring-4 ring-gray-800/50 z-20">
+                                <div className="w-full h-full bg-black relative overflow-hidden rounded-[45px]">
+                                    {screenshots.map((src, index) => (
+                                        <img key={index} src={src} alt={`App Screenshot ${index + 1}`} className={`absolute inset-0 w-full h-full object-fill transition-opacity duration-700 ease-in-out ${index === currentScreenIndex ? 'opacity-100' : 'opacity-0'}`} />
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                        <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+
+                        {/* Text Content */}
+                        <div className="w-full md:w-1/2 text-center md:text-right">
+                        <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
+                            وزنة <br />
+                            <span className="text-3xl md:text-5xl text-gray-500 font-bold mt-2 block">شاهي مضبوط، كل مرة</span>
+                        </h1>
+                        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">تطبيق يساعدك تضبط شاهيّك بدقة. اختر ماركتك، ومذاقك، وكمية الموية، وخل الباقي على وزنة.</p>
+                        
+                        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                            <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-[#EB6340] hover:bg-[#d7542f] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-[0_15px_35px_-15px_rgba(235,99,64,0.7)]">
+                            <Download size={24} /> تحميل التطبيق
+                            </a>
+                            <button onClick={() => scrollToSection('about')} className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-gray-600 border-2 border-gray-200 hover:border-[#EB6340] hover:text-[#EB6340] transition-all">معرفة المزيد</button>
+                        </div>
+                        <div className="mt-12 flex items-center justify-center md:justify-start gap-6 text-gray-400 text-sm font-medium">
+                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> مجاني بالكامل</span>
+                            <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500"/> يدعم العربية</span>
+                        </div>
+                        </div>
                     </div>
-                ))}
-            </div>
-        </div>
-      </section>
+                    </div>
+                </header>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">الأسئلة الشائعة</h2>
-          </div>
+                {/* About Section */}
+                <section id="about" className="py-20 bg-gray-50">
+                    <div className="container mx-auto px-4 max-w-3xl text-center">
+                        <span className="text-[#EB6340] font-bold tracking-wider uppercase text-sm mb-2 block">عن التطبيق</span>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6">نبذة عن وزنة</h2>
+                        <p className="text-xl text-gray-600 leading-10">
+                            تطبيق يساعدك تضبط شاهيّك كل مرة. تختار ماركة الشاي، مذاق الشاهي (وسط، ثقيل أو بدون سكر)، وكمية الموية، ووزنة يحسب لك بالضبط كمية الشاي والسكر بالغرام مع وقت الخدرة المناسب، مع خطوات تحضير واضحة ومؤقّت جاهز.
+                        </p>
+                    </div>
+                </section>
 
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden">
-                <button 
-                  onClick={() => toggleAccordion(idx)}
-                  className="w-full flex items-center justify-between p-5 text-right bg-white hover:bg-gray-50 transition-colors"
-                >
-                  <span className="font-bold text-gray-900">{faq.q}</span>
-                  {activeAccordion === idx ? <ChevronUp className="text-orange-500"/> : <ChevronDown className="text-gray-400"/>}
-                </button>
-                {activeAccordion === idx && (
-                  <div className="p-5 pt-0 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                {/* Features Section */}
+                <section id="features" className="py-20 px-4">
+                    <div className="container mx-auto max-w-6xl">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">مميزات التطبيق</h2>
+                        <p className="text-gray-500">كل اللي تحتاجه عشان تضبط الكيف</p>
+                    </div>
 
-      {/* App Requirements */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {features.map((feature, idx) => (
+                        <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
+                            <div className="w-16 h-16 bg-[#EB6340]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            {feature.icon}
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* How It Works */}
+                <section className="py-20 bg-gray-900 text-white overflow-hidden relative">
+                    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                        <div className="absolute right-0 top-0 w-96 h-96 bg-[#EB6340] rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+                        <div className="absolute left-0 bottom-0 w-96 h-96 bg-green-500 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
+                    </div>
+                    <div className="container mx-auto px-4 max-w-6xl relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">كيف تستخدم وزنة؟</h2>
+                        <p className="text-gray-400">5 خطوات بسيطة لكوب شاهي موزون</p>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+                        {steps.map((step, idx) => (
+                            <div key={idx} className="flex flex-col items-center relative">
+                                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-gray-700 bg-gray-800 flex items-center justify-center text-[#EB6340] mb-4 relative z-10 shadow-lg shadow-[0_10px_25px_-15px_rgba(235,99,64,0.6)]">
+                                    {React.cloneElement(step.icon, { size: 32 })}
+                                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#EB6340] text-white rounded-full flex items-center justify-center font-bold text-sm border-4 border-gray-900">{idx + 1}</div>
+                                </div>
+                                <span className="font-bold text-lg">{step.title}</span>
+                                {idx < steps.length - 1 && <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gray-800 -z-0"></div>}
+                            </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* Target Audience */}
+                <section className="py-20 px-4 bg-[#EB6340]/10">
+                    <div className="container mx-auto max-w-6xl">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl font-bold text-gray-900 mb-4">لمن وزنة؟</h2>
+                            <p className="text-gray-500">الحل المثالي لكل محبي الشاهي</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {targetAudience.map((item, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-100 hover:-translate-y-1 transition-transform">
+                                    <div className="w-14 h-14 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4">{item.icon}</div>
+                                    <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQ */}
+                <section id="faq" className="py-20 px-4 bg-white">
+                    <div className="container mx-auto max-w-3xl">
+                    <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900 mb-4">الأسئلة الشائعة</h2></div>
+                    <div className="space-y-4">
+                        {faqs.map((faq, idx) => (
+                        <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden">
+                            <button onClick={() => toggleAccordion(idx)} className="w-full flex items-center justify-between p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                            <span className="font-bold text-gray-900">{faq.q}</span>
+                            {activeAccordion === idx ? <ChevronUp className="text-[#EB6340]"/> : <ChevronDown className="text-gray-400"/>}
+                            </button>
+                            {activeAccordion === idx && <div className="p-5 pt-0 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">{faq.a}</div>}
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* App Requirements */}
       <section className="py-16 px-4 border-t border-gray-100">
-          <div className="container mx-auto max-w-4xl bg-orange-500 rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-right shadow-2xl shadow-orange-500/30">
+          <div className="container mx-auto max-w-4xl bg-[#EB6340] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-right shadow-2xl shadow-[0_25px_45px_-20px_rgba(235,99,64,0.6)]">
               <div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">وش تحتاج قبل تبدأ؟</h2>
-                  <ul className="text-orange-100 space-y-2 text-lg">
+                  <ul className="text-[#FDD7CE] space-y-2 text-lg">
                       <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> إبريق الشاهي وموية</li>
                       <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> شاهي من الماركات المدعومة</li>
                       <li className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> ميزان مطبخ رقمي (مهم جداً)</li>
                   </ul>
               </div>
-              <div className="bg-white text-orange-600 p-6 rounded-2xl min-w-[200px]">
+              <div className="bg-white text-[#EB6340] p-6 rounded-2xl min-w-[200px]">
                   <div className="text-4xl font-bold mb-1">100%</div>
                   <div className="text-sm font-medium">مجاني وبدون إعلانات</div>
               </div>
           </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contact" className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
-        <div className="container mx-auto px-4 max-w-6xl">
-            <div className="grid md:grid-cols-4 gap-12 mb-12">
-                <div className="col-span-1 md:col-span-2">
-                    <div className="flex items-center gap-2 mb-6">
-                        <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold">و</div>
-                        <span className="text-2xl font-bold text-gray-900">وزنة</span>
+                {/* Footer */}
+                <footer id="contact" className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="grid md:grid-cols-4 gap-12 mb-12">
+                            <div className="col-span-1 md:col-span-2">
+                                <div className="flex items-center gap-2 mb-6">
+                                    <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
+                                        <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
+                                    </div>
+                                    <span className="text-2xl font-bold text-gray-900">وزنة</span>
+                                </div>
+                                <p className="text-gray-500 leading-relaxed mb-6 max-w-sm">تطبيق وزنة يساعدك تضبط الشاهي باحترافية. مناسب للكشتات، البيوت، والمحلات التجارية.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-gray-900 mb-6">روابط سريعة</h4>
+                                <ul className="space-y-4 text-gray-600">
+                                    <li><button onClick={() => scrollToSection('home')} className="hover:text-[#EB6340]">الرئيسية</button></li>
+                                    <li><button onClick={() => scrollToSection('features')} className="hover:text-[#EB6340]">المميزات</button></li>
+                                    <li><button onClick={() => scrollToSection('faq')} className="hover:text-[#EB6340]">الأسئلة الشائعة</button></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-gray-900 mb-6">تواصل معنا</h4>
+                                <ul className="space-y-4 text-gray-600">
+                                    <li className="flex items-center gap-3">
+                                        <span className="font-semibold text-gray-800">البريد الالكتروني</span>
+                                        <a href="mailto:appsbysalman@outlook.com" className="hover:text-[#EB6340]">appsbysalman@outlook.com</a>
+                                    </li>
+                                    <li className="flex items-center gap-3">
+                                        <span className="font-semibold text-gray-800">تواصل</span>
+                                        <div className="flex items-center gap-3">
+                                            <button
+                                                type="button"
+                                                onClick={() => window.open('https://wa.me/966598528803', '_blank', 'noreferrer')}
+                                                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-transparent border border-gray-200 hover:border-[#EB6340] focus:outline-none focus:ring-2 focus:ring-[#EB6340]/50"
+                                                aria-label="تواصل واتساب"
+                                            >
+                                                <img src="./images/whatsapp.png" alt="واتساب" className="w-7 h-7 object-contain" />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => window.open('https://x.com/salmanappdev', '_blank', 'noreferrer')}
+                                                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-transparent border border-gray-200 hover:border-[#EB6340] focus:outline-none focus:ring-2 focus:ring-[#EB6340]/50"
+                                                aria-label="حساب X"
+                                            >
+                                                <img src="./images/x.png" alt="منصة X" className="w-7 h-7 object-contain" />
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                            <p>جميع الحقوق محفوظة © {new Date().getFullYear()} تطبيق وزنة</p>
+                            <div className="flex gap-6"><a href="#" className="hover:text-gray-900">سياسة الخصوصية</a><a href="#" className="hover:text-gray-900">الشروط والأحكام</a></div>
+                        </div>
                     </div>
-                    <p className="text-gray-500 leading-relaxed mb-6 max-w-sm">
-                        تطبيق وزنة يساعدك تضبط الشاهي باحترافية. مناسب للكشتات، البيوت، والمحلات التجارية.
-                    </p>
+                </footer>
                 </div>
-                
-                <div>
-                    <h4 className="font-bold text-gray-900 mb-6">روابط سريعة</h4>
-                    <ul className="space-y-4 text-gray-600">
-                        <li><button onClick={() => scrollToSection('home')} className="hover:text-orange-500">الرئيسية</button></li>
-                        <li><button onClick={() => scrollToSection('features')} className="hover:text-orange-500">المميزات</button></li>
-                        <li><button onClick={() => scrollToSection('faq')} className="hover:text-orange-500">الأسئلة الشائعة</button></li>
-                    </ul>
-                </div>
+            );
+        };
 
-                <div>
-                    <h4 className="font-bold text-gray-900 mb-6">تواصل معنا</h4>
-                    <ul className="space-y-4 text-gray-600">
-                        <li className="flex items-center gap-2"><ArrowRight size={16} className="text-orange-500"/> البريد الإلكتروني</li>
-                        <li className="flex items-center gap-2"><ArrowRight size={16} className="text-orange-500"/> واتساب الأعمال</li>
-                        <li className="flex items-center gap-2"><ArrowRight size={16} className="text-orange-500"/> منصة X</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-                <p>جميع الحقوق محفوظة © {new Date().getFullYear()} تطبيق وزنة</p>
-                <div className="flex gap-6">
-                    <a href="#" className="hover:text-gray-900">سياسة الخصوصية</a>
-                    <a href="#" className="hover:text-gray-900">الشروط والأحكام</a>
-                </div>
-            </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default WaznahLanding;
+        const root = createRoot(document.getElementById('root'));
+        root.render(<WaznahLanding />);
+    </script>
+</body>
+</html>
