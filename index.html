@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>وزنة - شاهي مضبوط كل مرة</title>
+    <meta name="description" content="Wznah - Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer. Download now!">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wznahapp.com">
+    <meta property="og:image" content="https://wznahapp.com/images/og-image.png">
+    <meta property="og:title" content="Wznah - Perfect Tea Every Time">
+    <meta property="og:description" content="Free app that gives you precise weights for different tea types">
+    <meta property="og:locale" content="en_US">
     
     <!-- استدعاء Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -209,6 +218,38 @@
             useEffect(() => {
                 document.documentElement.lang = isAr ? 'ar' : 'en';
                 document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+                
+                // Update meta description based on language
+                const metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription) {
+                    metaDescription.setAttribute('content', isAr 
+                        ? 'تطبيق وزنة - تطبيق مجاني لضبط الشاهي بدقة. يدعم العربية والإنجليزية، ماركات متعددة، وزنات دقيقة، ومؤقت مدمج. حمّل الآن!'
+                        : 'Wznah - Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer. Download now!'
+                    );
+                }
+                
+                // Update Open Graph tags based on language
+                const ogTitle = document.querySelector('meta[property="og:title"]');
+                const ogDescription = document.querySelector('meta[property="og:description"]');
+                const ogLocale = document.querySelector('meta[property="og:locale"]');
+                
+                if (ogTitle) {
+                    ogTitle.setAttribute('content', isAr 
+                        ? 'وزنة - شاهي مضبوط كل مرة'
+                        : 'Wznah - Perfect Tea Every Time'
+                    );
+                }
+                
+                if (ogDescription) {
+                    ogDescription.setAttribute('content', isAr 
+                        ? 'تطبيق مجاني يعطيك وزنات مضبوطة لأنواع شواهي مختلفة'
+                        : 'Free app that gives you precise weights for different tea types'
+                    );
+                }
+                
+                if (ogLocale) {
+                    ogLocale.setAttribute('content', isAr ? 'ar_AR' : 'en_US');
+                }
             }, [isAr]);
 
             const toggleAccordion = (index) => setActiveAccordion(activeAccordion === index ? null : index);
