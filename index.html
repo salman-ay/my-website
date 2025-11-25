@@ -14,6 +14,51 @@
     <meta property="og:description" content="Free app that gives you precise weights for different tea types">
     <meta property="og:locale" content="en_US">
     
+    <!-- Desktop Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/images/favicon-32x32.png">
+    
+    <!-- Apple Touch Icons (iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <!-- iOS Web App Capabilities -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Wznah | وزنة">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
+    
+    <!-- Web App Manifest (Android PWA) -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" id="structured-data">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Wznah",
+      "alternateName": "وزنة",
+      "description": "Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer.",
+      "applicationCategory": "Food & Drink",
+      "operatingSystem": "iOS",
+      "downloadUrl": "https://apps.apple.com/app/id6740716899",
+      "screenshot": "https://wznahapp.com/images/og-image.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
     <!-- استدعاء Tailwind CSS للتصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -249,6 +294,30 @@
                 
                 if (ogLocale) {
                     ogLocale.setAttribute('content', isAr ? 'ar_AR' : 'en_US');
+                }
+                
+                // Update Structured Data (JSON-LD) based on language
+                const jsonLdScript = document.getElementById('structured-data');
+                if (jsonLdScript) {
+                    const structuredData = {
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": isAr ? "وزنة" : "Wznah",
+                        "alternateName": isAr ? "Wznah" : "وزنة",
+                        "description": isAr 
+                            ? "تطبيق مجاني لضبط الشاهي بدقة. يدعم العربية والإنجليزية، ماركات متعددة، وزنات دقيقة، ومؤقت مدمج."
+                            : "Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer.",
+                        "applicationCategory": "Food & Drink",
+                        "operatingSystem": "iOS",
+                        "downloadUrl": "https://apps.apple.com/app/id6740716899",
+                        "screenshot": "https://wznahapp.com/images/og-image.png",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    };
+                    jsonLdScript.textContent = JSON.stringify(structuredData, null, 2);
                 }
             }, [isAr]);
 
