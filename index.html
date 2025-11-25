@@ -14,6 +14,12 @@
     <meta property="og:description" content="Free app that gives you precise weights for different tea types">
     <meta property="og:locale" content="en_US">
     
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wznah - Perfect Tea Every Time">
+    <meta name="twitter:description" content="Free app that gives you precise weights for different tea types">
+    <meta name="twitter:image" content="https://wznahapp.com/images/og-image.png">
+    
     <!-- Desktop Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -264,6 +270,11 @@
                 document.documentElement.lang = isAr ? 'ar' : 'en';
                 document.documentElement.dir = isAr ? 'rtl' : 'ltr';
                 
+                // Update title tag based on language
+                document.title = isAr 
+                    ? 'وزنة - يساعدك تسوي شاهي مضبوط'
+                    : 'Wznah - Helps You Brew the Perfect Tea';
+                
                 // Update meta description based on language
                 const metaDescription = document.querySelector('meta[name="description"]');
                 if (metaDescription) {
@@ -294,6 +305,24 @@
                 
                 if (ogLocale) {
                     ogLocale.setAttribute('content', isAr ? 'ar_AR' : 'en_US');
+                }
+                
+                // Update Twitter Card tags based on language
+                const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+                const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+                
+                if (twitterTitle) {
+                    twitterTitle.setAttribute('content', isAr 
+                        ? 'وزنة - شاهي مضبوط كل مرة'
+                        : 'Wznah - Perfect Tea Every Time'
+                    );
+                }
+                
+                if (twitterDescription) {
+                    twitterDescription.setAttribute('content', isAr 
+                        ? 'تطبيق مجاني يعطيك وزنات مضبوطة لأنواع شواهي مختلفة'
+                        : 'Free app that gives you precise weights for different tea types'
+                    );
                 }
                 
                 // Update Structured Data (JSON-LD) based on language
