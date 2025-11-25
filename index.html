@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>وزنة - شاهي مضبوط كل مرة</title>
     <meta name="description" content="Wznah - Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer. Download now!">
+    <meta name="robots" content="index, follow">
     
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
@@ -19,6 +20,14 @@
     <meta name="twitter:title" content="Wznah - Perfect Tea Every Time">
     <meta name="twitter:description" content="Free app that gives you precise weights for different tea types">
     <meta name="twitter:image" content="https://wznahapp.com/images/og-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wznahapp.com">
+    
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="ar" href="https://wznahapp.com">
+    <link rel="alternate" hreflang="en" href="https://wznahapp.com">
+    <link rel="alternate" hreflang="x-default" href="https://wznahapp.com">
     
     <!-- Desktop Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -44,6 +53,12 @@
     
     <!-- Web App Manifest (Android PWA) -->
     <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" id="structured-data">
@@ -104,7 +119,14 @@
             const [isMenuOpen, setIsMenuOpen] = useState(false);
             const [activeAccordion, setActiveAccordion] = useState(null);
             const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
-            const [lang, setLang] = useState('ar');
+            const [lang, setLang] = useState(() => {
+                // Load saved language preference from localStorage
+                if (typeof window !== 'undefined') {
+                    const savedLang = localStorage.getItem('wznah-language');
+                    return savedLang || 'ar';
+                }
+                return 'ar';
+            });
             const isAr = lang === 'ar';
 
             const translations = {
@@ -267,6 +289,11 @@
             }, [screenshots.length]);
 
             useEffect(() => {
+                // Save language preference to localStorage
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('wznah-language', lang);
+                }
+                
                 document.documentElement.lang = isAr ? 'ar' : 'en';
                 document.documentElement.dir = isAr ? 'rtl' : 'ltr';
                 
