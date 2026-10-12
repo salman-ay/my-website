@@ -5,7 +5,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://wznahapp.com/</loc>
-        <lastmod>2025-11-24</lastmod>
+        <lastmod>2026-10-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="ar" href="https://wznahapp.com/" />
@@ -16,7 +16,7 @@
     <!-- Privacy Policy -->
     <url>
         <loc>https://wznahapp.com/privacy-policy.html</loc>
-        <lastmod>2025-11-24</lastmod>
+        <lastmod>2026-10-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
         <xhtml:link rel="alternate" hreflang="ar" href="https://wznahapp.com/privacy-policy.html" />

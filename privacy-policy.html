@@ -1,129 +1,142 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wznah | Privacy Policy</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wznah | Privacy Policy · سياسة الخصوصية</title>
+  <meta name="description" content="Wznah privacy policy: the app works without collecting any personal information. سياسة خصوصية تطبيق وزنة.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2F4D50">
+  <link rel="canonical" href="https://wznahapp.com/privacy-policy.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Cairo', sans-serif; }
+    :root {
+      --white: #FFFFFF; --off: #EFF5F5; --sage: #D5E3E4; --teal: #487074; --deep: #2F4D50;
+      --orange: #EB6340; --orange-dark: #C9502F; --rule: rgba(47, 77, 80, 0.2); --rule-light: rgba(213, 227, 228, 0.3);
+      --gutter: clamp(16px, 4vw, 32px);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--deep); background: var(--white); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--gutter); }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+    .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+    .brand b { font-size: 28px; font-weight: 600; }
+    .brand span { font-size: 14px; font-weight: 500; letter-spacing: 0.08em; color: var(--teal); }
+    .back { font-size: 16px; font-weight: 500; text-decoration: none; }
+    .back:hover { text-decoration: underline; text-underline-offset: 6px; }
+    main { padding-block: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: clamp(48px, 7vw, 96px); }
+    .policy { max-width: 46em; }
+    .policy[dir="rtl"] { margin-inline-start: auto; }
+    .policy h1, .policy h2 { margin: 0; font-weight: 500; line-height: 1.2; text-wrap: balance; }
+    .policy h1 { font-size: clamp(36px, 4.4vw, 56px); margin-bottom: 20px; }
+    .policy .lede { font-size: clamp(20px, 1.9vw, 24px); font-weight: 300; line-height: 1.6; margin: 0 0 32px; }
+    .policy h2 { font-size: 24px; margin: 36px 0 12px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .policy p { margin: 0 0 10px; font-size: 17px; }
+    .policy ul { margin: 0; padding-inline-start: 1.3em; }
+    .policy li { font-size: 17px; margin-bottom: 8px; }
+    .policy a { color: var(--orange-dark); text-underline-offset: 4px; }
+    .policy .date { margin-top: 28px; font-size: 14px; color: var(--teal); }
+    .footer { background: var(--deep); color: var(--white); padding-block: 40px; }
+    .footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px; font-size: 15px; color: var(--sage); }
+    .footer a { text-decoration: none; }
+    .footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
   </style>
 </head>
-<body class="bg-white text-gray-800">
-  <div class="min-h-screen bg-gradient-to-b from-white via-orange-50/20 to-white">
-    <header class="border-b border-gray-100 bg-white/90 backdrop-blur-sm sticky top-0 z-20">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
-            <img src="./images/AppIcon.png" alt="Wznah Logo" class="w-10 h-10 object-contain">
-          </div>
-          <div>
-            <p class="text-xs uppercase tracking-wide text-gray-500">Wznah App</p>
-            <p class="text-lg font-bold text-gray-900">Privacy Policy</p>
-          </div>
-        </div>
-        <a href="./index.html" class="text-[#EB6340] font-semibold hover:underline flex items-center gap-2">
-          العودة للرئيسية
-        </a>
-      </div>
-    </header>
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="./index.html"><b>Wznah</b><span lang="ar">وزنة</span></a>
+    <a class="back" href="./index.html">Home · <span lang="ar">الرئيسية</span></a>
+  </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-12 space-y-10">
-      <!-- English Version -->
-      <section class="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-[#EB6340]/10 border border-[#EB6340]/20 rounded-xl flex items-center justify-center font-bold text-[#EB6340]">EN</div>
-          <h1 class="text-2xl md:text-3xl font-bold text-gray-900">Privacy Policy</h1>
-        </div>
-        <p class="text-gray-700 mb-4">At Wznah, your privacy matters to us. That’s why we designed the app to work without collecting any personal information about you.</p>
+  <main class="wrap">
+    <article class="policy" lang="en" dir="ltr">
+      <h1>Privacy Policy</h1>
+      <p class="lede">At Wznah, your privacy matters to us. That’s why we designed the app to work without collecting any personal information about you.</p>
 
-        <h2 class="text-xl font-bold text-gray-900 mt-8 mb-3">How We Protect Your Privacy</h2>
-        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li>No Account Required: You can use Wznah without creating an account or providing personal information.</li>
-          <li>Personal Data: We do not collect, store, or share any personal data.</li>
-          <li>Location: The app does not request access to your location or track your movements.</li>
-          <li>Usage Analytics: We do not use third-party tools to track your activity or analyze how you use the app.</li>
-          <li>Local Processing: All tea measurements, calculations, and timers are processed directly on your device.</li>
-          <li>Notifications: Notifications are used to alert you when the timer finishes. They are generated and managed locally on your device.</li>
-          <li>Internet Connection: Wznah works entirely offline and does not require an internet connection.</li>
-          <li>Recipe Sharing: When you share a tea recipe, the image is generated on your device and shared only with the destination you choose.</li>
-          <li>App Ratings: The app may ask you to rate Wznah through the App Store or Google Play. These prompts are handled by Apple or Google, and we do not receive any personal information from them.</li>
-        </ul>
+      <h2>How We Protect Your Privacy</h2>
+      <ul>
+        <li>No Account Required: You can use Wznah without creating an account or providing personal information.</li>
+        <li>Personal Data: We do not collect, store, or share any personal data.</li>
+        <li>Location: The app does not request access to your location or track your movements.</li>
+        <li>Usage Analytics: We do not use third-party tools to track your activity or analyze how you use the app.</li>
+        <li>Local Processing: All tea measurements, calculations, and timers are processed directly on your device.</li>
+        <li>Notifications: Notifications are used to alert you when the timer finishes. They are generated and managed locally on your device.</li>
+        <li>Internet Connection: Wznah works entirely offline and does not require an internet connection.</li>
+        <li>Recipe Sharing: When you share a tea recipe, the image is generated on your device and shared only with the destination you choose.</li>
+        <li>App Ratings: The app may ask you to rate Wznah through the App Store or Google Play. These prompts are handled by Apple or Google, and we do not receive any personal information from them.</li>
+      </ul>
 
-        <h2 class="text-xl font-bold text-gray-900 mt-8 mb-3">App Permissions</h2>
-        <p class="text-gray-700 mb-3">Wznah only requests system permissions for the following features:</p>
-        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li>Notifications: To alert you when your tea is ready. You can use the app without enabling notifications.</li>
-          <li>Saving Photos (iPhone): When you select “Save Image,” the app can add your recipe image to your photo library without accessing your existing photos.</li>
-          <li>Live Activities (iPhone): An optional feature that allows you to follow your tea timer from the Lock Screen. Available on iOS 17 or later.</li>
-          <li>Alarms (Android): To ensure timer alerts arrive on time. This permission does not give the app access to any other information.</li>
-        </ul>
+      <h2>App Permissions</h2>
+      <p>Wznah only requests system permissions for the following features:</p>
+      <ul>
+        <li>Notifications: To alert you when your tea is ready. You can use the app without enabling notifications.</li>
+        <li>Saving Photos (iPhone): When you select “Save Image,” the app can add your recipe image to your photo library without accessing your existing photos.</li>
+        <li>Live Activities (iPhone): An optional feature that allows you to follow your tea timer from the Lock Screen. Available on iOS 17 or later.</li>
+        <li>Alarms (Android): To ensure timer alerts arrive on time. This permission does not give the app access to any other information.</li>
+      </ul>
 
-        <h2 class="text-xl font-bold text-gray-900 mt-8 mb-3">Contact Us</h2>
-        <p class="text-gray-700">If you have any questions or concerns about your privacy or this policy, you can contact us at:</p>
-        <p class="text-gray-700 mt-2"><a href="mailto:wznahapp@gmail.com" class="text-[#EB6340] hover:underline">wznahapp@gmail.com</a></p>
+      <h2>Contact Us</h2>
+      <p>If you have any questions or concerns about your privacy or this policy, you can contact us at:</p>
+      <p><a href="mailto:wznahapp@gmail.com">wznahapp@gmail.com</a></p>
 
-        <h2 class="text-xl font-bold text-gray-900 mt-8 mb-3">Supported Platforms</h2>
-        <p class="text-gray-700">Wznah is available for iPhone running iOS 17.0 or later and Android phones running Android 8.0 or later.</p>
-        <p class="text-gray-700 mt-2">The app is not optimized for iPad.</p>
-        <p class="text-gray-700 mt-2">This Privacy Policy applies to both the iOS and Android versions of Wznah.</p>
+      <h2>Supported Platforms</h2>
+      <p>Wznah is available for iPhone running iOS 17.0 or later and Android phones running Android 8.0 or later.</p>
+      <p>The app is not optimized for iPad.</p>
+      <p>This Privacy Policy applies to both the iOS and Android versions of Wznah.</p>
 
-        <p class="text-sm text-gray-600 mt-8">Last updated: October 12, 2026</p>
-      </section>
+      <p class="date">Last updated: October 12, 2026</p>
+    </article>
 
-      <!-- Arabic Version -->
-      <section dir="rtl" class="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-[#EB6340]/10 border border-[#EB6340]/20 rounded-xl flex items-center justify-center font-bold text-[#EB6340]">AR</div>
-          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">سياسة الخصوصية</h2>
-        </div>
-        <p class="text-gray-700 mb-4">خصوصيتك تهمنا في وزنة. لذلك، صممنا التطبيق ليعمل دون الحاجة إلى جمع أي معلومات شخصية عنك.</p>
+    <article class="policy" lang="ar" dir="rtl">
+      <h1>سياسة الخصوصية</h1>
+      <p class="lede">خصوصيتك تهمنا في وزنة. لذلك، صممنا التطبيق ليعمل دون الحاجة إلى جمع أي معلومات شخصية عنك.</p>
 
-        <h3 class="text-xl font-bold text-gray-900 mt-8 mb-3">كيف نحافظ على خصوصيتك؟</h3>
-        <ul class="list-disc pr-6 space-y-2 text-gray-700">
-          <li>دون تسجيل حساب: يمكنك استخدام وزنة مباشرةً دون إنشاء حساب أو إدخال بيانات شخصية.</li>
-          <li>خصوصية بياناتك: لا نجمع أي بيانات شخصية عنك، ولا نحتفظ بها أو نشاركها مع أي جهة.</li>
-          <li>الموقع الجغرافي: لا يطلب التطبيق الوصول إلى موقعك، ولا يتتبع تحركاتك.</li>
-          <li>تحليل الاستخدام: لا نستخدم أي أدوات خارجية لتتبع نشاطك أو تحليل طريقة استخدامك للتطبيق.</li>
-          <li>العمليات الحسابية: تُجرى جميع حسابات مقادير الشاي وتشغيل المؤقت على جهازك مباشرةً.</li>
-          <li>الإشعارات: تُستخدم الإشعارات لتنبيهك عند انتهاء المؤقت، وتُنشأ وتُدار على جهازك.</li>
-          <li>الاتصال بالإنترنت: يعمل وزنة دون الحاجة إلى اتصال بالإنترنت.</li>
-          <li>مشاركة الوزنة: عند مشاركة وزنة الشاي، تُنشأ الصورة على جهازك، ولا تُشارك إلا مع الجهة التي تختارها.</li>
-          <li>تقييم التطبيق: قد يظهر لك طلب لتقييم وزنة على App Store أو Google Play. تتولى Apple أو Google عرض هذا الطلب، ولا تصلنا من خلاله أي معلومات شخصية عنك.</li>
-        </ul>
+      <h2>كيف نحافظ على خصوصيتك؟</h2>
+      <ul>
+        <li>دون تسجيل حساب: يمكنك استخدام وزنة مباشرةً دون إنشاء حساب أو إدخال بيانات شخصية.</li>
+        <li>خصوصية بياناتك: لا نجمع أي بيانات شخصية عنك، ولا نحتفظ بها أو نشاركها مع أي جهة.</li>
+        <li>الموقع الجغرافي: لا يطلب التطبيق الوصول إلى موقعك، ولا يتتبع تحركاتك.</li>
+        <li>تحليل الاستخدام: لا نستخدم أي أدوات خارجية لتتبع نشاطك أو تحليل طريقة استخدامك للتطبيق.</li>
+        <li>العمليات الحسابية: تُجرى جميع حسابات مقادير الشاي وتشغيل المؤقت على جهازك مباشرةً.</li>
+        <li>الإشعارات: تُستخدم الإشعارات لتنبيهك عند انتهاء المؤقت، وتُنشأ وتُدار على جهازك.</li>
+        <li>الاتصال بالإنترنت: يعمل وزنة دون الحاجة إلى اتصال بالإنترنت.</li>
+        <li>مشاركة الوزنة: عند مشاركة وزنة الشاي، تُنشأ الصورة على جهازك، ولا تُشارك إلا مع الجهة التي تختارها.</li>
+        <li>تقييم التطبيق: قد يظهر لك طلب لتقييم وزنة على App Store أو Google Play. تتولى Apple أو Google عرض هذا الطلب، ولا تصلنا من خلاله أي معلومات شخصية عنك.</li>
+      </ul>
 
-        <h3 class="text-xl font-bold text-gray-900 mt-8 mb-3">الأذونات التي يستخدمها التطبيق</h3>
-        <p class="text-gray-700 mb-3">يقتصر استخدام وزنة لأذونات النظام على الميزات التالية:</p>
-        <ul class="list-disc pr-6 space-y-2 text-gray-700">
-          <li>الإشعارات: لتنبيهك عند جاهزية الشاي. ويمكنك استخدام التطبيق دون تفعيلها.</li>
-          <li>حفظ الصور (آيفون): عند اختيار «حفظ الصورة»، يمكن للتطبيق إضافة صورة الوزنة إلى مكتبة الصور على جهازك، دون الاطلاع على صورك الأخرى.</li>
-          <li>الأنشطة المباشرة (آيفون): تتيح لك متابعة مؤقت الشاي من شاشة القفل، وهي ميزة اختيارية متوفرة على نظام iOS 17 أو أحدث.</li>
-          <li>المنبّهات (أندرويد): لضمان وصول تنبيه المؤقت في الوقت المحدد، دون منح التطبيق صلاحية الوصول إلى أي معلومات أخرى.</li>
-        </ul>
+      <h2>الأذونات التي يستخدمها التطبيق</h2>
+      <p>يقتصر استخدام وزنة لأذونات النظام على الميزات التالية:</p>
+      <ul>
+        <li>الإشعارات: لتنبيهك عند جاهزية الشاي. ويمكنك استخدام التطبيق دون تفعيلها.</li>
+        <li>حفظ الصور (آيفون): عند اختيار «حفظ الصورة»، يمكن للتطبيق إضافة صورة الوزنة إلى مكتبة الصور على جهازك، دون الاطلاع على صورك الأخرى.</li>
+        <li>الأنشطة المباشرة (آيفون): تتيح لك متابعة مؤقت الشاي من شاشة القفل، وهي ميزة اختيارية متوفرة على نظام iOS 17 أو أحدث.</li>
+        <li>المنبّهات (أندرويد): لضمان وصول تنبيه المؤقت في الوقت المحدد، دون منح التطبيق صلاحية الوصول إلى أي معلومات أخرى.</li>
+      </ul>
 
-        <h3 class="text-xl font-bold text-gray-900 mt-8 mb-3">التواصل معنا</h3>
-        <p class="text-gray-700">إذا كانت لديك أي أسئلة أو استفسارات تتعلق بخصوصيتك أو بهذه السياسة، يمكنك التواصل معنا عبر البريد الإلكتروني:</p>
-        <p class="text-gray-700 mt-2"><a href="mailto:wznahapp@gmail.com" class="text-[#EB6340] hover:underline">wznahapp@gmail.com</a></p>
+      <h2>التواصل معنا</h2>
+      <p>إذا كانت لديك أي أسئلة أو استفسارات تتعلق بخصوصيتك أو بهذه السياسة، يمكنك التواصل معنا عبر البريد الإلكتروني:</p>
+      <p><a href="mailto:wznahapp@gmail.com">wznahapp@gmail.com</a></p>
 
-        <h3 class="text-xl font-bold text-gray-900 mt-8 mb-3">الأنظمة المدعومة</h3>
-        <p class="text-gray-700">يتوفر وزنة لأجهزة آيفون التي تعمل بنظام iOS 17.0 أو أحدث، ولهواتف أندرويد التي تعمل بنظام Android 8.0 أو أحدث.</p>
-        <p class="text-gray-700 mt-2">التطبيق غير مُحسّن للاستخدام على أجهزة آيباد.</p>
-        <p class="text-gray-700 mt-2">تسري سياسة الخصوصية هذه على نسختَي التطبيق لنظامَي iOS وأندرويد.</p>
+      <h2>الأنظمة المدعومة</h2>
+      <p>يتوفر وزنة لأجهزة آيفون التي تعمل بنظام iOS 17.0 أو أحدث، ولهواتف أندرويد التي تعمل بنظام Android 8.0 أو أحدث.</p>
+      <p>التطبيق غير مُحسّن للاستخدام على أجهزة آيباد.</p>
+      <p>تسري سياسة الخصوصية هذه على نسختَي التطبيق لنظامَي iOS وأندرويد.</p>
 
-        <p class="text-sm text-gray-600 mt-8">آخر تحديث: 12 أكتوبر 2026</p>
-      </section>
-    </main>
+      <p class="date">آخر تحديث: 12 أكتوبر 2026</p>
+    </article>
+  </main>
 
-    <footer class="py-8 border-t border-gray-100 text-center text-sm text-gray-500">
-      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p>© Wznah App</p>
-        <div class="flex items-center gap-4">
-          <a href="./index.html" class="hover:text-[#EB6340]">الرئيسية</a>
-          <a href="mailto:wznahapp@gmail.com" class="hover:text-[#EB6340]">wznahapp@gmail.com</a>
-        </div>
-      </div>
-    </footer>
-  </div>
+  <footer class="footer">
+    <div class="wrap">
+      <span>© 2026 Wznah · <span lang="ar">وزنة</span></span>
+      <span><a href="./index.html">Home</a> · <a href="mailto:wznahapp@gmail.com">wznahapp@gmail.com</a></span>
+    </div>
+  </footer>
 </body>
 </html>

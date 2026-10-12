@@ -1,694 +1,626 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وزنة - شاهي مضبوط كل مرة</title>
-    <meta name="description"
-        content="Wznah - Free tea brewing app for perfect tea every time. Save favorite recipes, smart volume options, supports Arabic & English, 10+ brands, precise weights, built-in timer. Download now!">
+    <title>وزنة - شاهي مضبوط، كل مرة</title>
+    <meta name="description" content="مع وزنة، اختر نوع الشاهي، وحدد المذاق وكمية الموية، واعرف مقدار الشاهي والسكر المناسب لك. تطبيق مجاني وبدون إعلانات.">
     <meta name="robots" content="index, follow">
-    <meta name="msvalidate.01" content="432BDC3352C513A11F4DB424695BD7EC" />
+    <meta name="msvalidate.01" content="432BDC3352C513A11F4DB424695BD7EC">
+    <meta name="theme-color" content="#2F4D50">
 
-    <!-- Open Graph Tags -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wznahapp.com">
     <meta property="og:image" content="https://wznahapp.com/images/og-image.png">
-    <meta property="og:title" content="Wznah - Perfect Tea Every Time">
-    <meta property="og:description"
-        content="Free tea brewing app with precise weights, save favorites, smart volume options. Supports Arabic & English.">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="وزنة - شاهي مضبوط، كل مرة">
+    <meta property="og:description" content="اختر نوع الشاهي، وحدد المذاق وكمية الموية، واعرف مقدار الشاهي والسكر المناسب لك. مجاني وبدون إعلانات.">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:locale:alternate" content="en_US">
 
-    <!-- Twitter Card Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wznah - Perfect Tea Every Time">
-    <meta name="twitter:description"
-        content="Free tea brewing app with precise weights, save favorites, smart volume options. Supports Arabic & English.">
+    <meta name="twitter:title" content="وزنة - شاهي مضبوط، كل مرة">
+    <meta name="twitter:description" content="اختر نوع الشاهي، وحدد المذاق وكمية الموية، واعرف مقدار الشاهي والسكر المناسب لك. مجاني وبدون إعلانات.">
     <meta name="twitter:image" content="https://wznahapp.com/images/og-image.png">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://wznahapp.com">
-
-    <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="ar" href="https://wznahapp.com">
     <link rel="alternate" hreflang="en" href="https://wznahapp.com">
     <link rel="alternate" hreflang="x-default" href="https://wznahapp.com">
 
-    <!-- Desktop Favicons -->
+    <!-- Icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="shortcut icon" href="/images/favicon-32x32.png">
-
-    <!-- Apple Touch Icons (iOS) -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-
-    <!-- iOS Web App Capabilities -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Wznah | وزنة">
-
-    <!-- Android Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
-
-    <!-- Web App Manifest (Android PWA) -->
     <link rel="manifest" href="/manifest.json">
 
-    <!-- Preconnect for Performance -->
+    <!-- Fonts: IBM Plex Sans Arabic, the same family the app uses -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" id="structured-data">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Wznah",
       "alternateName": "وزنة",
-      "description": "Free tea brewing app for perfect tea every time. Save favorites, smart volume options, supports Arabic & English, 10+ brands, precise weights, built-in timer.",
+      "description": "Wznah takes the guesswork out of making tea. Choose your tea, preferred strength, and water amount to get the measurements you need for your next brew. Free and ad-free.",
       "applicationCategory": "Food & Drink",
       "operatingSystem": "iOS",
       "downloadUrl": "https://apps.apple.com/app/id6740716899",
       "screenshot": "https://wznahapp.com/images/og-image.png",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
-
-    <!-- استدعاء Tailwind CSS للتصميم -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- تهيئة الخطوط (Cairo Font) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --white: #FFFFFF;
+            --off: #EFF5F5;
+            --sand: #F4EFE7;
+            --sage: #D5E3E4;
+            --teal: #487074;
+            --deep: #2F4D50;
+            --ink: #1F3335;
+            --orange: #EB6340;
+            --orange-dark: #C9502F;
+            --rule: rgba(47, 77, 80, 0.2);
+            --rule-light: rgba(213, 227, 228, 0.3);
+            --max: 1280px;
+            --gutter: clamp(16px, 4vw, 32px);
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: var(--deep);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        [hidden] { display: none !important; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; }
+        h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; text-wrap: balance; }
+        p { margin: 0; }
+        ol, ul { margin: 0; padding: 0; list-style: none; }
+        figure { margin: 0; }
+        button { font: inherit; color: inherit; }
+
+        .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+        .band { padding-block: clamp(56px, 7vw, 104px); }
+        .band.sand { background: var(--sand); }
+        .band.deep { background: var(--deep); color: var(--white); }
+        .stack { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 48px); }
+        .head { display: flex; flex-direction: column; gap: 12px; }
+        .head.split { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 64px; }
+        .kicker { font-size: 15px; font-weight: 500; letter-spacing: 0.06em; }
+        .h-xl { font-size: clamp(36px, 4.4vw, 60px); }
+        .lede { font-size: clamp(20px, 1.9vw, 26px); font-weight: 300; line-height: 1.6; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            height: 56px; padding: 0 32px; border-radius: 12px;
+            background: var(--orange); color: var(--white);
+            font-size: 20px; font-weight: 700; text-decoration: none; white-space: nowrap;
+        }
+        .btn:hover { background: var(--orange-dark); }
+        .btn.small { height: 48px; padding: 0 22px; font-size: 18px; }
+        .textlink { font-size: 18px; font-weight: 500; text-underline-offset: 6px; }
+
+        /* Masthead */
+        .masthead { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+        .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+        .brand b { font-size: 28px; font-weight: 600; }
+        .brand span { font-size: 14px; font-weight: 500; letter-spacing: 0.08em; color: var(--teal); }
+        .nav { display: flex; gap: 28px; flex-wrap: wrap; font-size: 16px; font-weight: 500; }
+        .nav a { text-decoration: none; }
+        .nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+        .mast-actions { display: flex; align-items: center; gap: 10px; }
+        .menu-btn { display: none; height: 48px; padding: 0 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--white); font-size: 15px; font-weight: 600; cursor: pointer; }
+        @media (max-width: 860px) {
+            .nav { display: none; order: 3; width: 100%; flex-direction: column; gap: 4px; padding-top: 10px; border-top: 1px solid var(--rule); }
+            .nav a { padding: 10px 0; }
+            .nav.open { display: flex; }
+            .menu-btn { display: inline-flex; align-items: center; }
+            .mast-actions .btn { height: 48px; padding: 0 18px; font-size: 17px; }
         }
 
-        /* إخفاء شريط التمرير في الموك أب */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
+        /* Hero */
+        .hero { padding-block: clamp(44px, 7vw, 88px) clamp(48px, 6vw, 72px); display: flex; flex-direction: column; gap: clamp(24px, 3vw, 32px); }
+        .hero h1 { font-size: clamp(56px, 9vw, 136px); line-height: 1.08; max-width: 9em; }
+        .hero h1 em { font-style: normal; color: var(--orange); }
+        .hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px 64px; }
+        .hero-copy { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+        .hero-copy .lede { max-width: 24em; }
+        .hero-copy .body { font-size: 19px; line-height: 1.8; max-width: 30em; }
+        .hero-cta { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+        .hero-cta .row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+        .badge { font-size: 15px; font-weight: 500; }
 
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        /* Screenshots: a swipeable strip on phones, a four-up row from tablet width */
+        .shots { display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); margin-inline: calc(-1 * var(--gutter)); padding: 8px var(--gutter) 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .shots::-webkit-scrollbar { display: none; }
+        .shots figure { flex: 0 0 min(74vw, 300px); scroll-snap-align: center; display: flex; flex-direction: column; gap: 16px; }
+        @media (min-width: 720px) {
+            .shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 28px; overflow: visible; margin-inline: 0; padding: 0; }
+            .shots figure { flex: none; }
         }
+        .phone { border-radius: 34px; padding: 6px; background: var(--ink); box-shadow: 0 20px 44px rgba(31, 51, 53, 0.18); }
+        .phone img { border-radius: 28px; width: 100%; }
+        /* The share image is a card, not a screen: no frame, just the card itself, tilted, in a phone-sized slot */
+        .card { box-sizing: content-box; padding: 6px; aspect-ratio: 662 / 1440; display: flex; align-items: center; justify-content: center; }
+        .card img { width: 88%; border-radius: 18px; box-shadow: 0 22px 44px rgba(31, 51, 53, 0.22); transform: rotate(-3deg); }
+        .shots figcaption { display: flex; flex-direction: column; gap: 2px; font-size: 15px; line-height: 1.55; padding-inline: 4px; }
+        .shots figcaption .n { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 4px; }
+        .shots figcaption b { font-size: 18px; font-weight: 600; line-height: 1.3; }
+        @media (min-width: 720px) { .shots figcaption { font-size: 16px; } .shots figcaption b { font-size: 19px; } }
+
+        /* About */
+        .about { display: flex; flex-direction: column; gap: 24px; max-width: 1100px; }
+        .about .big { font-size: clamp(26px, 3vw, 40px); font-weight: 300; line-height: 1.5; }
+        .about .body { font-size: 19px; line-height: 1.8; max-width: 36em; }
+
+        /* Numbered lists (features) */
+        .list2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 64px; border-bottom: 1px solid var(--rule); }
+        .item { display: flex; gap: 20px; padding-block: 24px; border-top: 1px solid var(--rule); }
+        .item .n { flex: none; width: 36px; font-size: 16px; font-weight: 700; padding-top: 4px; }
+        .item h3 { font-size: 21px; margin-bottom: 6px; }
+        .item p { font-size: 16px; }
+
+        /* Steps */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px 32px; }
+        .steps li { display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 2px solid var(--deep); }
+        .steps .num { font-size: 44px; font-weight: 700; line-height: 1; }
+        .steps h3 { font-size: 20px; }
+        .steps p { font-size: 16px; }
+
+        /* Rows (occasions, FAQ) */
+        .rows { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); }
+        .deep .rows { border-color: var(--rule-light); }
+        .row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 48px; padding-block: 24px; border-top: 1px solid var(--rule); }
+        .deep .row { border-color: var(--rule-light); padding-block: 28px; }
+        .row .t { flex: 0 1 460px; font-size: 20px; font-weight: 500; }
+        .row p { flex: 1 1 320px; font-size: 17px; }
+        .deep .row .t { flex-basis: 360px; font-size: clamp(32px, 4vw, 56px); line-height: 1.2; }
+        .deep .row p { font-size: 19px; color: var(--sage); }
+        .deep .lede { color: var(--sage); }
+
+        /* What you need */
+        .need { display: flex; flex-wrap: wrap; align-items: center; gap: 32px 64px; }
+        .need .copy { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+        .need h2 { font-size: 32px; }
+        .need p { font-size: 19px; line-height: 1.8; }
+        .illos { display: flex; gap: 16px; flex-wrap: wrap; }
+        .illo { width: 120px; height: 120px; border-radius: 50%; background: var(--sand); display: flex; align-items: center; justify-content: center; }
+        .illo img { width: 88px; height: 88px; }
+
+        /* Footer */
+        .footer { background: var(--deep); color: var(--white); padding-block: clamp(56px, 7vw, 96px) 48px; }
+        .cta-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px; }
+        .cta-row h2 { font-size: clamp(40px, 5vw, 72px); line-height: 1.1; }
+        .cta-row .lede { color: var(--sage); margin-top: 12px; }
+        .sign { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 32px; padding-top: 32px; margin-top: 48px; border-top: 1px solid var(--rule-light); }
+        .sign .word { font-size: clamp(72px, 10vw, 150px); font-weight: 600; line-height: 0.95; color: var(--sage); }
+        .sign .meta { display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--sage); }
+        .sign .meta a { color: inherit; }
     </style>
-
-    <!-- خريطة الاستيراد (Import Map) لاستخدام React و Lucide من المتصفح مباشرة -->
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
-      }
-    }
-    </script>
-
-    <!-- Babel لترجمة كود React داخل المتصفح -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
+<body>
 
-<body class="bg-white text-gray-800">
-    <div id="root"></div>
+<!-- ======================= ARABIC ======================= -->
+<div id="lang-ar" lang="ar" dir="rtl">
+    <a id="top-ar"></a>
+    <header class="wrap masthead">
+        <a class="brand" href="#top-ar"><b>وزنة</b><span>WZNAH</span></a>
+        <nav class="nav" id="nav-ar" aria-label="القائمة الرئيسية">
+            <a href="#top-ar">الرئيسية</a>
+            <a href="#features-ar">المميزات</a>
+            <a href="#how-ar">كيف تستخدم وزنة؟</a>
+            <a href="#faq-ar">الأسئلة الشائعة</a>
+            <a href="#contact-ar">تواصل معنا</a>
+            <a href="#" data-set-lang="en" lang="en" dir="ltr">EN</a>
+        </nav>
+        <div class="mast-actions">
+            <a class="btn small" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">حمّل وزنة</a>
+            <button class="menu-btn" type="button" data-menu="nav-ar" aria-expanded="false" aria-controls="nav-ar">القائمة</button>
+        </div>
+    </header>
 
-    <script type="text/babel" data-type="module">
-        import React, { useState, useEffect } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { Download, Clock, Scale, Globe, CheckCircle, ChevronDown, ChevronUp, Menu, X, Coffee, Users, Store, Truck, Leaf, Droplets, Flame, Smartphone } from 'lucide-react';
-
-        const WaznahLanding = () => {
-            const [isMenuOpen, setIsMenuOpen] = useState(false);
-            const [activeAccordion, setActiveAccordion] = useState(null);
-            const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
-            const [lang, setLang] = useState(() => {
-                // Load saved language preference from localStorage
-                if (typeof window !== 'undefined') {
-                    const savedLang = localStorage.getItem('wznah-language');
-                    return savedLang || 'ar';
-                }
-                return 'ar';
-            });
-            const isAr = lang === 'ar';
-
-            const translations = {
-                ar: {
-                    nav: { home: "الرئيسية", about: "عن التطبيق", features: "المميزات", how: "كيف تستخدم وزنة؟", faq: "الأسئلة الشائعة", contact: "اتصل بنا", langToggle: "EN" },
-                    hero: {
-                        title: "وزنة",
-                        subtitle: "شاهي مضبوط، كل مرة",
-                        desc: "تطبيق يساعدك تضبط شاهيّك بدقة. اختر ماركتك، ومذاقك، وكمية الموية، وخل الباقي على وزنة. احفظ وصفاتك المفضلة وشاركها مع أصدقائك!",
-                        primaryCta: "تحميل التطبيق",
-                        secondaryCta: "معرفة المزيد",
-                        badges: ["مجاني بالكامل", "يدعم العربية والإنجليزية"]
-                    },
-                    about: {
-                        kicker: "عن التطبيق",
-                        title: "نبذة عن وزنة",
-                        desc: "تطبيق يساعدك تضبط شاهيّك كل مرة. تختار ماركة الشاي، مذاق الشاهي (وسط، ثقيل أو بدون سكر)، وكمية الموية، ووزنة يحسب لك بالضبط كمية الشاي والسكر بالغرام مع وقت الخدرة المناسب، مع خطوات تحضير واضحة ومؤقّت جاهز."
-                    },
-                    featuresSection: { title: "مميزات التطبيق", subtitle: "كل اللي تحتاجه عشان تضبط الكيف" },
-                    features: [
-                        { title: "طعم ثابت ودقّة وزن", desc: "يعطيك نفس مذاق الشاهي كل مرة بدون ما يعقد، مع حساب دقيق لكمية الشاي والسكر بالغرام." },
-                        { title: "حفظ وتعديل المفضلة", desc: "احفظ الوزنة المفضلة، عدل الوزنة على مزاجك، وتقدر تشاركها مع أصدقائك بضغطة زر" },
-                        { title: "يدعم ماركات مختلفة", desc: "تختار من تشكيلة واسعة من ماركات ومنتجات الشاهي المشهورة وتضبط لكل وحدة وزنيتها." },
-                        { title: "خيارات ذكية", desc: "التطبيق يتعلم كميات الماء اللي تستخدمها ويعرضها لك تلقائياً في المرات الجاية." },
-                        { title: "مؤقّت مدمج", desc: "ينبهك وقت ما تخلص الخدرة عشان تشرب الشاهي في وقته المثالي." },
-                        { title: "يدعم لغتين", desc: "تقدر تستخدم التطبيق بالعربي أو بالإنجليزي حسب اللي يريحك." }
-                    ],
-                    how: { title: "كيف تستخدم وزنة؟", subtitle: "5 خطوات بسيطة لكوب شاهي موزون", steps: ["اختر الماركة", "حدد المذاق", "أدخل الماء", "الوزنة جاهزة", "اضبط المؤقت"] },
-                    target: {
-                        title: "لمن وزنة؟",
-                        subtitle: "الحل المثالي لكل محبي الشاهي",
-                        list: [
-                            { title: "للعوائل والبيت", desc: "يخلي طعم الشاهي ثابت لكل أفراد البيت، خصوصًا لو فيه أكثر من واحد يعد الشاهي." },
-                            { title: "للكشتات", desc: "يساعدك تضبط الشاهي لأي عدد، وتكرر نفس النتيجة حتى لو تغير حجم الإبريق." },
-                            { title: "لمحلات تقديم الشاي", desc: "يوحّد وصفة الشاهي بين العاملين، عشان الزبون يلقى نفس الطعم في كل مرة." },
-                            { title: "للفود تركس", desc: "يفيد وقت الزحمة، إعداد سريع ووصفة جاهزة لأي عامل جديد ينضم للفريق." }
-                        ]
-                    },
-                    faqs: {
-                        title: "الأسئلة الشائعة",
-                        list: [
-                            { q: "هل التطبيق مجاني؟", a: "نعم، التطبيق مجاني بالكامل وبدون إعلانات." },
-                            { q: "هل يدعم وزنات الشاهي بدون سكر؟", a: "نعم، تقدر تختار خيار 'بدون سكر' من داخل التطبيق." },
-                            { q: "كيف أحفظ وصفتي المفضلة؟", a: "بعد ما تجهز الوزنة، اضغط على أيقونة القلب لحفظها في المفضلة. تقدر ترجع لها وتشاركها بسهولة." },
-                            { q: "هل أقدر أستخدمه بدون ميزان؟", a: "في الوقت الحالي التطبيق يعرض لك الوزنات بالغرامات، لذلك تحتاج إلى ميزان لضمان طعم مضبوط دايمًا." },
-                            { q: "كيف أطلب إضافة براند؟", a: "تقدر تتواصل معنا عبر الإيميل وتذكر اسم البراند ونوع الشاهي، ونسعى نضيفه في التحديثات القادمة." }
-                        ]
-                    },
-                    requirements: {
-                        title: "وش تحتاج قبل تبدأ؟",
-                        items: ["إبريق الشاهي وموية", "شاهي من الماركات المدعومة", "ميزان مطبخ رقمي (مهم جداً)"],
-                        badge: { value: "100%", desc: "مجاني وبدون إعلانات" }
-                    },
-                    footerBlurb: "تطبيق وزنة يساعدك تضبط الشاهي باحترافية. مناسب للكشتات، البيوت، والمحلات التجارية.",
-                    screenshots: [
-                        "اختر علامة الشاي التجارية",
-                        "اختر المنتج، كمية الماء والمذاق اللي يناسبك",
-                        "احصل على الوزنة المناسبة",
-                        "تعليمات واضحة ومؤقت مدمج"
-                    ]
-                },
-                en: {
-                    nav: { home: "Home", about: "About", features: "Features", how: "How it works", faq: "FAQ", contact: "Contact", langToggle: "عربي" },
-                    hero: {
-                        title: "Wznah",
-                        subtitle: "Perfect tea, every time",
-                        desc: "The app that helps you brew tea precisely. Pick your brand, taste, and water amount—Wznah handles the rest. Save your favorite recipes and share them with friends!",
-                        primaryCta: "Download the app",
-                        secondaryCta: "Learn more",
-                        badges: ["Free forever", "Arabic & English supported"]
-                    },
-                    about: {
-                        kicker: "About the app",
-                        title: "About Wznah",
-                        desc: "Wznah helps you brew consistent tea every time. Choose your tea brand, preferred taste (medium, strong, or sugar-free), and water amount. Wznah calculates exact grams of tea and sugar plus the ideal steep time, with clear steps and a built-in timer."
-                    },
-                    featuresSection: { title: "App features", subtitle: "Everything you need for a perfect brew" },
-                    features: [
-                        { title: "Consistent taste & precise weights", desc: "Get the same great flavor every time with exact tea and sugar grams." },
-                        { title: "Save & Edit Favorites", desc: "Save your favorite recipes, edit their ratios anytime to perfect your brew, and share them with friends!" },
-                        { title: "Supports many brands", desc: "Pick from popular tea brands and products with preset weights." },
-                        { title: "Smart volume options", desc: "The app learns your preferred water amounts and shows them automatically next time." },
-                        { title: "Built-in timer", desc: "Alerts you when steeping is done for the perfect cup." },
-                        { title: "Bilingual support", desc: "Use the app in Arabic or English—your choice." }
-                    ],
-                    how: { title: "How to use Wznah", subtitle: "5 simple steps to a balanced cup", steps: ["Choose the brand", "Set the taste", "Add water", "Weights ready", "Set the timer"] },
-                    target: {
-                        title: "Who is Wznah for?",
-                        subtitle: "The perfect helper for tea lovers",
-                        list: [
-                            { title: "Families & home", desc: "Keep the same taste for everyone, even when multiple people brew." },
-                            { title: "Camping trips", desc: "Brew for any group size with consistent results every time." },
-                            { title: "Tea shops", desc: "Standardize recipes across staff so customers get the same cup." },
-                            { title: "Food trucks", desc: "Fast prep and ready recipes for new team members during rush hour." }
-                        ]
-                    },
-                    faqs: {
-                        title: "FAQ",
-                        list: [
-                            { q: "Is the app free?", a: "Yes, the app is completely free with no ads." },
-                            { q: "Does it support sugar-free recipes?", a: "Yes, choose the 'Sugar-free' option in the app." },
-                            { q: "How do I save my favorite recipe?", a: "After your recipe is ready, tap the heart icon to save it to favorites. You can access and share it easily." },
-                            { q: "Can I use it without a scale?", a: "Currently weights are shown in grams, so a kitchen scale is needed for consistent results." },
-                            { q: "How do I request a brand?", a: "Email us with the brand and tea type, and we'll try to add it in future updates." }
-                        ]
-                    },
-                    requirements: {
-                        title: "What you need before you start",
-                        items: ["Teapot and water", "Tea from supported brands", "Digital kitchen scale (very important)"],
-                        badge: { value: "100%", desc: "Free and ad-free" }
-                    },
-                    footerBlurb: "Wznah helps you brew tea like a pro. Great for trips, home, and tea shops.",
-                    screenshots: [
-                        "Pick your tea brand",
-                        "Choose product, water, and taste that suits you",
-                        "Get the exact weights",
-                        "Clear instructions with a built-in timer"
-                    ]
-                }
-            };
-
-            const baseScreens = [
-                { src: "./images/brand_screen.png" },
-                { src: "./images/product_screen.png" },
-                { src: "./images/weight_screen.png" },
-                { src: "./images/timer_screen.png" }
-            ];
-
-            const featureIcons = [
-                <Scale className="w-8 h-8 text-[#EB6340]" />,
-                <CheckCircle className="w-8 h-8 text-[#EB6340]" />,
-                <Store className="w-8 h-8 text-[#EB6340]" />,
-                <Smartphone className="w-8 h-8 text-[#EB6340]" />,
-                <Clock className="w-8 h-8 text-[#EB6340]" />,
-                <Globe className="w-8 h-8 text-[#EB6340]" />
-            ];
-
-            const targetIcons = [
-                <Users className="w-6 h-6" />,
-                <Flame className="w-6 h-6" />,
-                <Coffee className="w-6 h-6" />,
-                <Truck className="w-6 h-6" />
-            ];
-
-            const stepIcons = [<Store />, <Leaf />, <Droplets />, <Scale />, <Clock />];
-
-            const t = translations[lang];
-
-            const screenshots = baseScreens.map((shot, idx) => ({ ...shot, caption: t.screenshots[idx] }));
-
-            const features = t.features.map((item, idx) => ({ ...item, icon: featureIcons[idx] }));
-
-            const targetAudience = t.target.list.map((item, idx) => ({ ...item, icon: targetIcons[idx] }));
-
-            const steps = t.how.steps.map((title, idx) => ({ title, icon: stepIcons[idx] }));
-
-            useEffect(() => {
-                const interval = setInterval(() => {
-                    setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screenshots.length);
-                }, 3000);
-                return () => clearInterval(interval);
-            }, [screenshots.length]);
-
-            useEffect(() => {
-                // Save language preference to localStorage
-                if (typeof window !== 'undefined') {
-                    localStorage.setItem('wznah-language', lang);
-                }
-
-                document.documentElement.lang = isAr ? 'ar' : 'en';
-                document.documentElement.dir = isAr ? 'rtl' : 'ltr';
-
-                // Update title tag based on language
-                document.title = isAr
-                    ? 'وزنة - يساعدك تسوي شاهي مضبوط'
-                    : 'Wznah - Helps You Brew the Perfect Tea';
-
-                // Update meta description based on language
-                const metaDescription = document.querySelector('meta[name="description"]');
-                if (metaDescription) {
-                    metaDescription.setAttribute('content', isAr
-                        ? 'تطبيق وزنة - تطبيق مجاني لضبط الشاهي بدقة. يدعم العربية والإنجليزية، ماركات متعددة، وزنات دقيقة، ومؤقت مدمج. حمّل الآن!'
-                        : 'Wznah - Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer. Download now!'
-                    );
-                }
-
-                // Update Open Graph tags based on language
-                const ogTitle = document.querySelector('meta[property="og:title"]');
-                const ogDescription = document.querySelector('meta[property="og:description"]');
-                const ogLocale = document.querySelector('meta[property="og:locale"]');
-
-                if (ogTitle) {
-                    ogTitle.setAttribute('content', isAr
-                        ? 'وزنة - شاهي مضبوط كل مرة'
-                        : 'Wznah - Perfect Tea Every Time'
-                    );
-                }
-
-                if (ogDescription) {
-                    ogDescription.setAttribute('content', isAr
-                        ? 'تطبيق مجاني يعطيك وزنات مضبوطة لأنواع شواهي مختلفة'
-                        : 'Free app that gives you precise weights for different tea types'
-                    );
-                }
-
-                if (ogLocale) {
-                    ogLocale.setAttribute('content', isAr ? 'ar_AR' : 'en_US');
-                }
-
-                // Update Twitter Card tags based on language
-                const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-                const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-
-                if (twitterTitle) {
-                    twitterTitle.setAttribute('content', isAr
-                        ? 'وزنة - شاهي مضبوط كل مرة'
-                        : 'Wznah - Perfect Tea Every Time'
-                    );
-                }
-
-                if (twitterDescription) {
-                    twitterDescription.setAttribute('content', isAr
-                        ? 'تطبيق مجاني يعطيك وزنات مضبوطة لأنواع شواهي مختلفة'
-                        : 'Free app that gives you precise weights for different tea types'
-                    );
-                }
-
-                // Update Structured Data (JSON-LD) based on language
-                const jsonLdScript = document.getElementById('structured-data');
-                if (jsonLdScript) {
-                    const structuredData = {
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": isAr ? "وزنة" : "Wznah",
-                        "alternateName": isAr ? "Wznah" : "وزنة",
-                        "description": isAr
-                            ? "تطبيق مجاني لضبط الشاهي بدقة. يدعم العربية والإنجليزية، ماركات متعددة، وزنات دقيقة، ومؤقت مدمج."
-                            : "Free tea brewing app for perfect tea every time. Supports Arabic & English, multiple brands, precise weights, built-in timer.",
-                        "applicationCategory": "Food & Drink",
-                        "operatingSystem": "iOS",
-                        "downloadUrl": "https://apps.apple.com/app/id6740716899",
-                        "screenshot": "https://wznahapp.com/images/og-image.png",
-                        "offers": {
-                            "@type": "Offer",
-                            "price": "0",
-                            "priceCurrency": "USD"
-                        }
-                    };
-                    jsonLdScript.textContent = JSON.stringify(structuredData, null, 2);
-                }
-            }, [isAr]);
-
-            const toggleAccordion = (index) => setActiveAccordion(activeAccordion === index ? null : index);
-
-            const scrollToSection = (id) => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                    setIsMenuOpen(false);
-                }
-            };
-
-            return (
-                <div dir={isAr ? "rtl" : "ltr"} className="font-sans text-gray-800 bg-white min-h-screen selection:bg-[#EB6340]/10 selection:text-[#EB6340]">
-
-                    {/* Navigation */}
-                    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-                        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
-                                    <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
-                                </div>
-                                <span className="text-2xl font-bold text-gray-900">{t.hero.title}</span>
-                            </div>
-
-                            <div className="hidden md:flex items-center gap-8">
-                                <button onClick={() => scrollToSection('home')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.home}</button>
-                                <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.about}</button>
-                                <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.features}</button>
-                                <button onClick={() => scrollToSection('how')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.how}</button>
-                                <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.faq}</button>
-                                <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-[#EB6340] font-medium transition-colors">{t.nav.contact}</button>
-                            </div>
-
-                            <div className="hidden md:flex items-center gap-4">
-                                <button className="text-gray-500 font-medium hover:text-[#EB6340]" onClick={() => setLang(isAr ? 'en' : 'ar')}>{t.nav.langToggle}</button>
-                                <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] hover:bg-[#d7542f] text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-[0_12px_30px_-12px_rgba(235,99,64,0.6)]">{t.hero.primaryCta}</a>
-                            </div>
-
-                            <button className="md:hidden text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                            </button>
-                        </div>
-
-                        {isMenuOpen && (
-                            <div className="md:hidden bg-white border-t border-gray-100 px-4 py-6 flex flex-col gap-4 shadow-xl">
-                                <button onClick={() => scrollToSection('home')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.home}</button>
-                                <button onClick={() => scrollToSection('about')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.about}</button>
-                                <button onClick={() => scrollToSection('features')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.features}</button>
-                                <button onClick={() => scrollToSection('how')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.how}</button>
-                                <button onClick={() => scrollToSection('faq')} className={`text-gray-700 font-medium py-2 ${isAr ? 'text-right' : 'text-left'}`}>{t.nav.faq}</button>
-                                <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="bg-[#EB6340] text-white text-center py-3 rounded-xl font-bold">{t.hero.primaryCta}</a>
-                                <button onClick={() => { setLang(isAr ? 'en' : 'ar'); setIsMenuOpen(false); }} className="text-[#EB6340] font-semibold text-center py-2 border border-[#EB6340]/30 rounded-xl">
-                                    {t.nav.langToggle}
-                                </button>
-                            </div>
-                        )}
-                    </nav>
-
-                    {/* Hero Section */}
-                    <header id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 px-4 relative overflow-hidden">
-                        <div className="container mx-auto max-w-6xl">
-                            <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
-
-                                {/* iPhone Mockup */}
-                                <div className="relative w-full md:w-1/2 flex flex-col items-center">
-                                    {/* Decorative Leaves */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10 opacity-20 md:opacity-100 pointer-events-none">
-                                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-green-500 fill-current">
-                                            <path transform="translate(100 100)" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.2C93.5,8.8,82.2,21.9,71.6,33.5C60.9,45.1,50.8,55.2,39.2,63.4C27.6,71.6,14.5,77.9,0.7,76.7C-13.1,75.5,-27.2,66.8,-39.9,58.2C-52.6,49.6,-63.9,41.1,-73.1,30.3C-82.3,19.5,-89.4,6.4,-88.4,-6.2C-87.4,-18.8,-78.3,-30.9,-68,-41C-57.7,-51.1,-46.2,-59.2,-33.9,-67.2C-21.6,-75.2,-8.5,-83.1,3.4,-89C15.3,-94.9,30.5,-98.8,44.7,-76.4Z" />
-                                        </svg>
-                                    </div>
-                                    <div className="absolute top-10 -right-10 text-green-400 animate-bounce delay-700 hidden md:block"><Leaf className="w-12 h-12 rotate-45" /></div>
-                                    <div className="absolute bottom-10 -left-10 text-green-400 animate-bounce delay-1000 hidden md:block"><Leaf className="w-8 h-8 -rotate-12" /></div>
-
-                                    {/* Phone Frame */}
-                                    <div className="relative w-[300px] h-[650px] bg-black rounded-[55px] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] border-[10px] border-black overflow-hidden ring-4 ring-gray-800/50 z-20">
-                                        <div className="w-full h-full bg-black relative overflow-hidden rounded-[45px]">
-                                            {screenshots.map((shot, index) => (
-                                                <img key={index} src={shot.src} alt={`App Screenshot ${index + 1}`} className={`absolute inset-0 w-full h-full object-fill transition-opacity duration-700 ease-in-out ${index === currentScreenIndex ? 'opacity-100' : 'opacity-0'}`} />
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Pagination & Caption */}
-                                    <div className="mt-6 flex flex-col items-center gap-3 w-full max-w-[320px]">
-                                        <div className="flex items-center justify-center gap-2">
-                                            {screenshots.map((_, index) => (
-                                                <button
-                                                    key={index}
-                                                    onClick={() => setCurrentScreenIndex(index)}
-                                                    className={`w-3 h-3 rounded-full transition-all ${index === currentScreenIndex ? 'bg-[#EB6340] w-4 h-4' : 'bg-gray-300 hover:bg-gray-400'}`}
-                                                    aria-label={`الانتقال إلى الشاشة ${index + 1}`}
-                                                />
-                                            ))}
-                                        </div>
-                                        <p className="text-sm text-gray-600">{screenshots[currentScreenIndex].caption}</p>
-                                    </div>
-                                </div>
-
-                                {/* Text Content */}
-                                <div className={`w-full md:w-1/2 text-center ${isAr ? 'md:text-right' : 'md:text-left'}`}>
-                                    <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
-                                        {t.hero.title} <br />
-                                        <span className="text-3xl md:text-5xl text-gray-500 font-bold mt-2 block">{t.hero.subtitle}</span>
-                                    </h1>
-                                    <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">{t.hero.desc}</p>
-
-                                    <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full sm:w-auto bg-[#EB6340] hover:bg-[#d7542f] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-[0_15px_35px_-15px_rgba(235,99,64,0.7)]">
-                                            <Download size={24} /> {t.hero.primaryCta}
-                                        </a>
-                                        <button onClick={() => scrollToSection('about')} className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-gray-600 border-2 border-gray-200 hover:border-[#EB6340] hover:text-[#EB6340] transition-all">{t.hero.secondaryCta}</button>
-                                    </div>
-                                    <div className="mt-12 flex items-center justify-center md:justify-start gap-6 text-gray-400 text-sm font-medium">
-                                        <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500" /> {t.hero.badges[0]}</span>
-                                        <span className="flex items-center gap-2"><CheckCircle size={16} className="text-green-500" /> {t.hero.badges[1]}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* About Section */}
-                    <section id="about" className="py-20 bg-gray-50">
-                        <div className="container mx-auto px-4 max-w-3xl text-center">
-                            <span className="text-[#EB6340] font-bold tracking-wider uppercase text-sm mb-2 block">{t.about.kicker}</span>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.about.title}</h2>
-                            <p className="text-xl text-gray-600 leading-10">
-                                {t.about.desc}
-                            </p>
-                        </div>
-                    </section>
-
-                    {/* Features Section */}
-                    <section id="features" className="py-20 px-4">
-                        <div className="container mx-auto max-w-6xl">
-                            <div className="text-center mb-16">
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.featuresSection.title}</h2>
-                                <p className="text-gray-500">{t.featuresSection.subtitle}</p>
-                            </div>
-
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {features.map((feature, idx) => (
-                                    <div key={idx} className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-shadow duration-300 group">
-                                        <div className="w-16 h-16 bg-[#EB6340]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                            {feature.icon}
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                                        <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* How It Works */}
-                    <section id="how" className="py-20 bg-gray-900 text-white overflow-hidden relative">
-                        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                            <div className="absolute right-0 top-0 w-96 h-96 bg-[#EB6340] rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
-                            <div className="absolute left-0 bottom-0 w-96 h-96 bg-green-500 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
-                        </div>
-                        <div className="container mx-auto px-4 max-w-6xl relative z-10">
-                            <div className="text-center mb-16">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.how.title}</h2>
-                                <p className="text-gray-400">{t.how.subtitle}</p>
-                            </div>
-                            <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                                {steps.map((step, idx) => (
-                                    <div key={idx} className="flex flex-col items-center relative">
-                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-gray-700 bg-gray-800 flex items-center justify-center text-[#EB6340] mb-4 relative z-10 shadow-lg shadow-[0_10px_25px_-15px_rgba(235,99,64,0.6)]">
-                                            {React.cloneElement(step.icon, { size: 32 })}
-                                            <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#EB6340] text-white rounded-full flex items-center justify-center font-bold text-sm border-4 border-gray-900">{idx + 1}</div>
-                                        </div>
-                                        <span className="font-bold text-lg">{step.title}</span>
-                                        {idx < steps.length - 1 && <div className={`hidden md:block absolute top-12 ${isAr ? 'right-1/2' : 'left-1/2'} w-full h-0.5 bg-gray-800 -z-0`}></div>}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Target Audience */}
-                    <section className="py-20 px-4 bg-[#EB6340]/10">
-                        <div className="container mx-auto max-w-6xl">
-                            <div className="text-center mb-16">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-4">{t.target.title}</h2>
-                                <p className="text-gray-500">{t.target.subtitle}</p>
-                            </div>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {targetAudience.map((item, idx) => (
-                                    <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-100 hover:-translate-y-1 transition-transform">
-                                        <div className="w-14 h-14 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4">{item.icon}</div>
-                                        <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                                        <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* FAQ */}
-                    <section id="faq" className="py-20 px-4 bg-white">
-                        <div className="container mx-auto max-w-3xl">
-                            <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900 mb-4">{t.faqs.title}</h2></div>
-                            <div className="space-y-4">
-                                {t.faqs.list.map((faq, idx) => (
-                                    <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden">
-                                        <button onClick={() => toggleAccordion(idx)} className={`w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}>
-                                            <span className="font-bold text-gray-900">{faq.q}</span>
-                                            {activeAccordion === idx ? <ChevronUp className="text-[#EB6340]" /> : <ChevronDown className="text-gray-400" />}
-                                        </button>
-                                        {activeAccordion === idx && <div className="p-5 pt-0 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">{faq.a}</div>}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* App Requirements */}
-                    <section className="py-16 px-4 border-t border-gray-100">
-                        <div className={`container mx-auto max-w-4xl bg-[#EB6340] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center ${isAr ? 'md:text-right' : 'md:text-left'} shadow-2xl shadow-[0_25px_45px_-20px_rgba(235,99,64,0.6)]`}>
-                            <div>
-                                <h2 className="text-2xl md:text-3xl font-bold mb-4">{t.requirements.title}</h2>
-                                <ul className="text-[#FDD7CE] space-y-2 text-lg">
-                                    {t.requirements.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle size={20} /> {item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="bg-white text-[#EB6340] p-6 rounded-2xl min-w-[200px]">
-                                <div className="text-4xl font-bold mb-1">{t.requirements.badge.value}</div>
-                                <div className="text-sm font-medium">{t.requirements.badge.desc}</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Footer */}
-                    <footer id="contact" className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
-                        <div className="container mx-auto px-4 max-w-6xl">
-                            <div className="grid md:grid-cols-4 gap-12 mb-12">
-                                <div className="col-span-1 md:col-span-2">
-                                    <div className="flex items-center gap-2 mb-6">
-                                        <div className="w-10 h-10 bg-[#EB6340]/10 rounded-xl flex items-center justify-center border border-[#EB6340]/20 overflow-hidden">
-                                            <img src="./images/AppIcon.png" alt="شعار وزنة" className="w-10 h-10 object-contain" />
-                                        </div>
-                                        <span className="text-2xl font-bold text-gray-900">{t.hero.title}</span>
-                                    </div>
-                                    <p className="text-gray-500 leading-relaxed mb-6 max-w-sm">{t.footerBlurb}</p>
-                                    <div className="mt-4 flex justify-start">
-                                        <a href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">
-                                            <img src="./images/Download_on_the_App_Store_Badge.png" alt={isAr ? "حمل من متجر App Store" : "Download on the App Store"} className="w-40 h-auto" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-6">{isAr ? "روابط سريعة" : "Quick links"}</h4>
-                                    <ul className="space-y-4 text-gray-600">
-                                        <li><button onClick={() => scrollToSection('home')} className="hover:text-[#EB6340]">{t.nav.home}</button></li>
-                                        <li><button onClick={() => scrollToSection('features')} className="hover:text-[#EB6340]">{t.nav.features}</button></li>
-                                        <li><button onClick={() => scrollToSection('faq')} className="hover:text-[#EB6340]">{t.nav.faq}</button></li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-6">{isAr ? "تواصل معنا" : "Contact us"}</h4>
-                                    <ul className="space-y-4 text-gray-600">
-                                        <li>
-                                            <a href="mailto:wznahapp@gmail.com" className="hover:text-[#EB6340]">wznahapp@gmail.com</a>
-                                        </li>
-                                        <li>
-                                            <button
-                                                type="button"
-                                                onClick={() => window.open('https://x.com/wznahapp', '_blank', 'noreferrer')}
-                                                className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-transparent border border-gray-200 hover:border-[#EB6340] focus:outline-none focus:ring-2 focus:ring-[#EB6340]/50"
-                                                aria-label="حساب X"
-                                            >
-                                                <img src="./images/x.png" alt="منصة X" className="w-7 h-7 object-contain" />
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-                                <p>{isAr ? `جميع الحقوق محفوظة © ${new Date().getFullYear()} تطبيق وزنة` : `All rights reserved © ${new Date().getFullYear()} Wznah App`}</p>
-                                <div className="flex gap-6">
-                                    <a href="privacy-policy.html" className="hover:text-gray-900">{isAr ? "سياسة الخصوصية" : "Privacy Policy"}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
+    <section class="wrap hero">
+        <h1>شاهي مضبوط،<br><em>كل مرة.</em></h1>
+        <div class="hero-row">
+            <div class="hero-copy">
+                <p class="lede">ودّك تضبط شاهيّك على مزاجك، وتكرر نفس الطعم كل مرة؟</p>
+                <p class="body">مع وزنة، اختر نوع الشاهي، وحدد المذاق وكمية الموية، واعرف مقدار الشاهي والسكر المناسب لك. بكل بساطة، وبدون تخمين.</p>
+            </div>
+            <div class="hero-cta">
+                <div class="row">
+                    <a class="btn" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">حمّل وزنة</a>
+                    <a class="textlink" href="#features-ar">اكتشف التطبيق</a>
                 </div>
-            );
-        };
+                <span class="badge">مجاني وبدون إعلانات</span>
+            </div>
+        </div>
+    </section>
 
-        const root = createRoot(document.getElementById('root'));
-        root.render(<WaznahLanding />);
-    </script>
+    <section class="band sand" aria-label="صور التطبيق">
+        <div class="wrap"><div class="shots">
+            <figure><div class="phone"><img src="images/screens/ar-home.jpg" width="662" height="1440" alt="شاشة اختيار العلامة التجارية في تطبيق وزنة"></div><figcaption><span class="n">01</span><span>اختر ماركة الشاهي المفضلة عندك</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/ar-options.jpg" width="662" height="1440" alt="شاشة اختيار المنتج وكمية الموية والمذاق" loading="lazy"></div><figcaption><span class="n">02</span><span>حدد المذاق وكمية الموية</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/ar-result.jpg" width="662" height="1440" alt="شاشة الوزنة: الشاي والسكر بالغرام ووقت الخدرة" loading="lazy"></div><figcaption><span class="n">03</span><span>خذ وزنتك بالمقادير المناسبة</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/ar-instructions.jpg" width="662" height="1440" alt="شاشة التعليمات مع المؤقت" loading="lazy"></div><figcaption><span class="n">04</span><span>حضّر شاهيّك مع خطوات واضحة ومؤقّت</span></figcaption></figure>
+        </div></div>
+    </section>
+
+    <section class="band" id="about-ar">
+        <div class="wrap about">
+            <span class="kicker">عن وزنة</span>
+            <h2 class="h-xl">وزنتك على مزاجك</h2>
+            <p class="big">كل واحد له طريقته في تحضير الشاهي، ووزنة يساعدك تضبط طريقتك.</p>
+            <p class="body">سواء تحب شاهيّك مناسب أو ثقيل أو بدون سكر، اختر اللي يناسبك، ووزنة يحدد لك كمية الشاهي والسكر حسب مقدار الموية، مع خطوات التحضير ووقت الخدرة.</p>
+        </div>
+    </section>
+
+    <section class="band sand" id="favorites-ar">
+        <div class="wrap stack">
+            <div class="head split">
+                <div class="head">
+                    <span class="kicker">المفضلة</span>
+                    <h2 class="h-xl">وزناتك المفضلة</h2>
+                </div>
+                <p class="lede" style="max-width: 24em">احفظ الوزنة اللي تعجبك، وعدّلها حسب ذوقك، وشاركها مع اللي تحب.</p>
+            </div>
+            <div class="shots">
+                <figure><div class="phone"><img src="images/screens/ar-favorites.jpg" width="662" height="1440" alt="قائمة المفضلة مع زرّي تعديل وحذف" loading="lazy"></div><figcaption><span class="n">01</span><b>احفظها.</b><span>اسحب أي وزنة لتعديلها أو حذفها.</span></figcaption></figure>
+                <figure><div class="phone"><img src="images/screens/ar-edit.jpg" width="662" height="1440" alt="شاشة تعديل الوزنة" loading="lazy"></div><figcaption><span class="n">02</span><b>عدّلها.</b><span>الشاي والسكر والوقت، على ذوقك.</span></figcaption></figure>
+                <figure><div class="card"><img src="images/screens/ar-share.jpg" width="722" height="1440" alt="صورة الوزنة الجاهزة للمشاركة مع رمز QR لتحميل التطبيق" loading="lazy"></div><figcaption><span class="n">03</span><b>شاركها.</b><span>صورة جاهزة بوزنتك، ورمز لتحميل التطبيق.</span></figcaption></figure>
+                <figure><div class="phone"><img src="images/screens/ar-history.jpg" width="662" height="1440" alt="سجل آخر الوزنات" loading="lazy"></div><figcaption><span class="n">04</span><b>ارجع لها.</b><span>السجل يحفظ آخر وزناتك.</span></figcaption></figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="band" id="features-ar">
+        <div class="wrap stack">
+            <div class="head">
+                <span class="kicker">المميزات</span>
+                <h2 class="h-xl">كل اللي تحتاجه لشاهي على مزاجك</h2>
+            </div>
+            <div class="list2">
+                <div class="item"><span class="n">01</span><div><h3>مقادير واضحة</h3><p>اعرف كمية الشاهي والسكر بالغرام حسب المذاق وكمية الموية اللي تختارها.</p></div></div>
+                <div class="item"><span class="n">02</span><div><h3>شاهي على كيفك</h3><p>مناسب، ثقيل، أو بدون سكر. اختر المذاق اللي تحبه.</p></div></div>
+                <div class="item"><span class="n">03</span><div><h3>ماركات الشاهي المفضلة</h3><p>اختر من مجموعة من ماركات الشاهي ومنتجاتها المدعومة في التطبيق.</p></div></div>
+                <div class="item"><span class="n">04</span><div><h3>وزناتك المفضلة</h3><p>احفظ الوزنة اللي تعجبك، وعدّلها حسب ذوقك، وشاركها مع اللي تحب.</p></div></div>
+                <div class="item"><span class="n">05</span><div><h3>خطوات تحضير سهلة</h3><p>اتبع خطوات واضحة لتحضير الشاهي، واستخدم المؤقّت المدمج لمعرفة وقت انتهاء الخدرة.</p></div></div>
+                <div class="item"><span class="n">06</span><div><h3>بالعربي والإنجليزي</h3><p>استخدم وزنة باللغة اللي تناسبك.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="band sand" id="how-ar">
+        <div class="wrap stack">
+            <div class="head split">
+                <h2 class="h-xl">كيف تستخدم وزنة؟</h2>
+                <p class="lede">من اختيار الشاهي إلى الوزنة المناسبة</p>
+            </div>
+            <ol class="steps">
+                <li><span class="num">1</span><h3>اختر الشاهي</h3><p>حدد الماركة والمنتج.</p></li>
+                <li><span class="num">2</span><h3>حدد المذاق</h3><p>اختر درجة الشاهي اللي تحبها.</p></li>
+                <li><span class="num">3</span><h3>حدد الموية</h3><p>أدخل كمية الموية اللي بتستخدمها.</p></li>
+                <li><span class="num">4</span><h3>خذ الوزنة</h3><p>اعرف مقدار الشاهي والسكر ووقت الخدرة.</p></li>
+                <li><span class="num">5</span><h3>حضّر واستمتع</h3><p>اتبع خطوات التحضير وشغّل المؤقّت.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="band deep" id="occasions-ar">
+        <div class="wrap stack">
+            <div class="head">
+                <h2 class="h-xl">وين يفيدك وزنة؟</h2>
+                <p class="lede">شاهي البيت أو الكشتة… الوزنة معك</p>
+            </div>
+            <div class="rows">
+                <div class="row"><span class="t">في البيت</span><p>إذا أعجبتك وزنة معينة، تقدر ترجع لها بدل ما تبدأ من جديد كل مرة.</p></div>
+                <div class="row"><span class="t">في الكشتات</span><p>سواء إبريق صغير أو كبير، حدد كمية الموية وخذ المقادير المناسبة.</p></div>
+                <div class="row"><span class="t">في محلات الشاهي</span><p>خل وصفة الشاهي واضحة وسهلة الاتباع، حتى لو اختلف الشخص اللي يحضّرها.</p></div>
+                <div class="row"><span class="t">في الفود ترك</span><p>مقادير محددة وخطوات واضحة تساعد على تسهيل تحضير الشاهي وقت الزحمة.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="band" id="faq-ar">
+        <div class="wrap stack">
+            <h2 class="h-xl">الأسئلة الشائعة</h2>
+            <div class="rows">
+                <div class="row"><span class="t">هل وزنة مجاني؟</span><p>نعم، التطبيق مجاني وبدون إعلانات.</p></div>
+                <div class="row"><span class="t">هل أقدر أضبط الشاهي بدون سكر؟</span><p>أكيد، فيه خيار للشاهي بدون سكر.</p></div>
+                <div class="row"><span class="t">هل أقدر أحفظ وزنتي المفضلة؟</span><p>نعم، تقدر تحفظ الوزنة في المفضلة وترجع لها متى ما احتجتها.</p></div>
+                <div class="row"><span class="t">هل أحتاج ميزان؟</span><p>نعم، يُفضّل استخدام ميزان مطبخ رقمي لقياس المقادير بالغرام والحصول على نتائج أدق.</p></div>
+                <div class="row"><span class="t">ماركة الشاهي اللي أستخدمها مو موجودة، وش أسوي؟</span><p>راسلنا باسم الماركة والمنتج، وبنأخذ اقتراحك بعين الاعتبار عند إضافة منتجات جديدة.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap need" style="padding-bottom: clamp(56px, 7vw, 104px)">
+        <div class="copy">
+            <h2>وش تحتاج عشان تبدأ؟</h2>
+            <p>ما تحتاج إلا إبريق، وموية، وشاهي من الماركات المدعومة، وميزان مطبخ رقمي لضبط المقادير.</p>
+        </div>
+        <div class="illos" aria-hidden="true">
+            <div class="illo"><img src="images/illustrations/kettle.svg" alt="" loading="lazy"></div>
+            <div class="illo"><img src="images/illustrations/teapot.svg" alt="" loading="lazy"></div>
+            <div class="illo"><img src="images/illustrations/scale.svg" alt="" loading="lazy"></div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact-ar">
+        <div class="wrap">
+            <div class="cta-row">
+                <div>
+                    <h2>جاهز تضبط شاهيّك؟</h2>
+                    <p class="lede">خل الوزنة علينا، والشاهي عليك.</p>
+                </div>
+                <a class="btn" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">حمّل وزنة مجانًا</a>
+            </div>
+            <div class="sign">
+                <span class="word" aria-hidden="true">وزنة</span>
+                <div class="meta">
+                    <span>وزنة — شاهي مضبوط، كل مرة.</span>
+                    <span>تواصل معنا: <a href="mailto:wznahapp@gmail.com">wznahapp@gmail.com</a></span>
+                    <span><a href="https://x.com/wznahapp" target="_blank" rel="noreferrer">X: @wznahapp</a> · <a href="privacy-policy.html">سياسة الخصوصية</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ======================= ENGLISH ======================= -->
+<div id="lang-en" lang="en" dir="ltr" hidden>
+    <a id="top-en"></a>
+    <header class="wrap masthead">
+        <a class="brand" href="#top-en"><b>Wznah</b><span lang="ar">وزنة</span></a>
+        <nav class="nav" id="nav-en" aria-label="Main">
+            <a href="#top-en">Home</a>
+            <a href="#features-en">Features</a>
+            <a href="#how-en">How It Works</a>
+            <a href="#faq-en">FAQ</a>
+            <a href="#contact-en">Contact</a>
+            <a href="#" data-set-lang="ar" lang="ar" dir="rtl">عربي</a>
+        </nav>
+        <div class="mast-actions">
+            <a class="btn small" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">Download Wznah</a>
+            <button class="menu-btn" type="button" data-menu="nav-en" aria-expanded="false" aria-controls="nav-en">Menu</button>
+        </div>
+    </header>
+
+    <section class="wrap hero">
+        <h1>Great Tea,<br><em>Every Time.</em></h1>
+        <div class="hero-row">
+            <div class="hero-copy">
+                <p class="lede">Ever made the perfect pot of tea, only to struggle to recreate it?</p>
+                <p class="body">Wznah takes the guesswork out of making tea. Choose your tea, preferred strength, and water amount to get the measurements you need for your next brew.</p>
+            </div>
+            <div class="hero-cta">
+                <div class="row">
+                    <a class="btn" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">Download Wznah</a>
+                    <a class="textlink" href="#features-en">Explore the App</a>
+                </div>
+                <span class="badge">Free and ad-free</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="band sand" aria-label="App screenshots">
+        <div class="wrap"><div class="shots">
+            <figure><div class="phone"><img src="images/screens/en-home.jpg" width="662" height="1440" alt="Wznah brand selection screen" loading="lazy"></div><figcaption><span class="n">01</span><span>Choose your favorite tea brand</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/en-options.jpg" width="662" height="1440" alt="Product, water amount and taste selection screen" loading="lazy"></div><figcaption><span class="n">02</span><span>Select your preferred strength and water amount</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/en-result.jpg" width="662" height="1440" alt="Measurements screen: tea and sugar in grams and steeping time" loading="lazy"></div><figcaption><span class="n">03</span><span>Get your tea and sugar measurements</span></figcaption></figure>
+            <figure><div class="phone"><img src="images/screens/en-instructions.jpg" width="662" height="1440" alt="Instructions screen with the built-in timer" loading="lazy"></div><figcaption><span class="n">04</span><span>Follow simple instructions with a built-in timer</span></figcaption></figure>
+        </div></div>
+    </section>
+
+    <section class="band" id="about-en">
+        <div class="wrap about">
+            <span class="kicker">About</span>
+            <h2 class="h-xl">Your Tea, Your Way</h2>
+            <p class="big">Everyone has their own idea of a great cup of tea. Wznah helps you make it just the way you like it.</p>
+            <p class="body">Whether you prefer your tea balanced, bold, or sugar-free, Wznah gives you the ingredient measurements, brewing instructions, and steeping time based on your choices.</p>
+        </div>
+    </section>
+
+    <section class="band sand" id="favorites-en">
+        <div class="wrap stack">
+            <div class="head split">
+                <div class="head">
+                    <span class="kicker">Favorites</span>
+                    <h2 class="h-xl">Save Your Favorites</h2>
+                </div>
+                <p class="lede" style="max-width: 24em">Keep the recipes you love, adjust them to your taste, and share them with friends.</p>
+            </div>
+            <div class="shots">
+                <figure><div class="phone"><img src="images/screens/en-favorites.jpg" width="662" height="1440" alt="Favorites list with edit and delete actions" loading="lazy"></div><figcaption><span class="n">01</span><b>Save it.</b><span>Swipe any recipe to edit or delete it.</span></figcaption></figure>
+                <figure><div class="phone"><img src="images/screens/en-edit.jpg" width="662" height="1440" alt="Adjust ratios screen" loading="lazy"></div><figcaption><span class="n">02</span><b>Adjust it.</b><span>Tea, sugar and time, to your taste.</span></figcaption></figure>
+                <figure><div class="card"><img src="images/screens/en-share.jpg" width="722" height="1440" alt="Ready-to-share recipe image with a QR code to the app" loading="lazy"></div><figcaption><span class="n">03</span><b>Share it.</b><span>A ready-made image of your recipe, with a QR code to the app.</span></figcaption></figure>
+                <figure><div class="phone"><img src="images/screens/en-history.jpg" width="662" height="1440" alt="History of recent recipes" loading="lazy"></div><figcaption><span class="n">04</span><b>Come back to it.</b><span>History keeps your recent recipes.</span></figcaption></figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="band" id="features-en">
+        <div class="wrap stack">
+            <div class="head">
+                <span class="kicker">Features</span>
+                <h2 class="h-xl">Everything You Need for Your Favorite Brew</h2>
+            </div>
+            <div class="list2">
+                <div class="item"><span class="n">01</span><div><h3>Measured Ingredients</h3><p>Get tea and sugar quantities in grams based on your chosen taste and water amount.</p></div></div>
+                <div class="item"><span class="n">02</span><div><h3>Made to Your Taste</h3><p>Balanced, bold, or sugar-free. Find the balance you enjoy.</p></div></div>
+                <div class="item"><span class="n">03</span><div><h3>Your Favorite Tea Brands</h3><p>Choose from a selection of supported tea brands and products.</p></div></div>
+                <div class="item"><span class="n">04</span><div><h3>Save Your Favorites</h3><p>Keep the recipes you love, adjust them to your taste, and share them with friends.</p></div></div>
+                <div class="item"><span class="n">05</span><div><h3>Simple Brewing Instructions</h3><p>Follow clear preparation steps and use the built-in timer to track your steeping time.</p></div></div>
+                <div class="item"><span class="n">06</span><div><h3>Arabic &amp; English</h3><p>Use Wznah in whichever language you prefer.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="band sand" id="how-en">
+        <div class="wrap stack">
+            <div class="head split">
+                <h2 class="h-xl">How It Works</h2>
+                <p class="lede">From Your Favorite Tea to the Right Measurements</p>
+            </div>
+            <ol class="steps">
+                <li><span class="num">1</span><h3>Choose Your Tea</h3><p>Select a brand and product.</p></li>
+                <li><span class="num">2</span><h3>Pick Your Taste</h3><p>Choose your preferred strength.</p></li>
+                <li><span class="num">3</span><h3>Enter Water Amount</h3><p>Set how much water you’re using.</p></li>
+                <li><span class="num">4</span><h3>Get Your Measurements</h3><p>See the tea, sugar, and brewing time.</p></li>
+                <li><span class="num">5</span><h3>Start Brewing</h3><p>Follow the instructions and use the timer.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="band deep" id="occasions-en">
+        <div class="wrap stack">
+            <div class="head">
+                <h2 class="h-xl">Made for Every Tea Occasion</h2>
+                <p class="lede">At Home, Outdoors, or at Work</p>
+            </div>
+            <div class="rows">
+                <div class="row"><span class="t">At Home</span><p>Found a recipe you love? Keep it handy for your next pot.</p></div>
+                <div class="row"><span class="t">Camping &amp; Outdoor Trips</span><p>From small gatherings to larger groups, adjust your measurements to your water amount.</p></div>
+                <div class="row"><span class="t">Tea Shops</span><p>Keep tea recipes easy to follow, no matter who’s preparing them.</p></div>
+                <div class="row"><span class="t">Food Trucks</span><p>Clear measurements and preparation steps make tea easier to prepare during busy hours.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="band" id="faq-en">
+        <div class="wrap stack">
+            <h2 class="h-xl">Frequently Asked Questions</h2>
+            <div class="rows">
+                <div class="row"><span class="t">Is Wznah free?</span><p>Yes. Wznah is free to use, with no ads.</p></div>
+                <div class="row"><span class="t">Can I make tea without sugar?</span><p>Yes. Simply select the sugar-free option.</p></div>
+                <div class="row"><span class="t">Can I save my favorite recipes?</span><p>Yes. Save your favorite recipes and access them whenever you need them.</p></div>
+                <div class="row"><span class="t">Do I need a kitchen scale?</span><p>We recommend a digital kitchen scale to measure ingredients accurately in grams.</p></div>
+                <div class="row"><span class="t">My tea brand isn’t listed. Can I request it?</span><p>Absolutely. Email us your tea brand and product name. We’ll consider it for future updates.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap need" style="padding-bottom: clamp(56px, 7vw, 104px)">
+        <div class="copy">
+            <h2>What You’ll Need</h2>
+            <p>All you need is a teapot, water, a supported tea brand, and a digital kitchen scale for accurate measurements.</p>
+        </div>
+        <div class="illos" aria-hidden="true">
+            <div class="illo"><img src="images/illustrations/kettle.svg" alt="" loading="lazy"></div>
+            <div class="illo"><img src="images/illustrations/teapot.svg" alt="" loading="lazy"></div>
+            <div class="illo"><img src="images/illustrations/scale.svg" alt="" loading="lazy"></div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact-en">
+        <div class="wrap">
+            <div class="cta-row">
+                <div>
+                    <h2>Ready to Make Your Next Great Brew?</h2>
+                    <p class="lede">Your tea. Your taste. Your measurements.</p>
+                </div>
+                <a class="btn" href="https://apps.apple.com/app/id6740716899" target="_blank" rel="noreferrer">Download Wznah for Free</a>
+            </div>
+            <div class="sign">
+                <span class="word" aria-hidden="true">Wznah</span>
+                <div class="meta">
+                    <span>Wznah — Great Tea, Every Time.</span>
+                    <span>Contact: <a href="mailto:wznahapp@gmail.com">wznahapp@gmail.com</a></span>
+                    <span><a href="https://x.com/wznahapp" target="_blank" rel="noreferrer">X: @wznahapp</a> · <a href="privacy-policy.html">Privacy Policy</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+(function () {
+    var KEY = 'wznah-language';
+    var meta = {
+        ar: {
+            title: 'وزنة - شاهي مضبوط، كل مرة',
+            desc: 'مع وزنة، اختر نوع الشاهي، وحدد المذاق وكمية الموية، واعرف مقدار الشاهي والسكر المناسب لك. تطبيق مجاني وبدون إعلانات.',
+            og: 'ar_AR', dir: 'rtl'
+        },
+        en: {
+            title: 'Wznah - Great Tea, Every Time',
+            desc: 'Wznah takes the guesswork out of making tea. Choose your tea, preferred strength, and water amount to get the measurements you need for your next brew. Free and ad-free.',
+            og: 'en_US', dir: 'ltr'
+        }
+    };
+    function setMeta(sel, value) {
+        var el = document.querySelector(sel);
+        if (el) el.setAttribute('content', value);
+    }
+    function apply(lang) {
+        var m = meta[lang] || meta.ar;
+        lang = meta[lang] ? lang : 'ar';
+        document.documentElement.lang = lang;
+        document.documentElement.dir = m.dir;
+        document.getElementById('lang-ar').hidden = lang !== 'ar';
+        document.getElementById('lang-en').hidden = lang !== 'en';
+        document.title = m.title;
+        setMeta('meta[name="description"]', m.desc);
+        setMeta('meta[property="og:title"]', m.title);
+        setMeta('meta[property="og:description"]', m.desc);
+        setMeta('meta[property="og:locale"]', m.og);
+        setMeta('meta[name="twitter:title"]', m.title);
+        setMeta('meta[name="twitter:description"]', m.desc);
+        try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+    // ?lang=en opens the English version directly (and remembers it); otherwise the last choice wins.
+    var fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('lang'); } catch (e) {}
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    var initial = meta[fromUrl] ? fromUrl : saved;
+    if (initial === 'en') apply('en');
+    else if (fromUrl === 'ar') apply('ar');
+
+    document.addEventListener('click', function (e) {
+        var langLink = e.target.closest('[data-set-lang]');
+        if (langLink) {
+            e.preventDefault();
+            apply(langLink.getAttribute('data-set-lang'));
+            window.scrollTo(0, 0);
+            return;
+        }
+        var menuBtn = e.target.closest('[data-menu]');
+        if (menuBtn) {
+            var nav = document.getElementById(menuBtn.getAttribute('data-menu'));
+            var open = nav.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            return;
+        }
+        var navLink = e.target.closest('.nav.open a');
+        if (navLink) {
+            var openNav = navLink.closest('.nav');
+            openNav.classList.remove('open');
+            var btn = document.querySelector('[data-menu="' + openNav.id + '"]');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
 </body>
-
 </html>
